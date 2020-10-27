@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  # Routes for home.
+  get 'home/home'
+  get 'home/contact'
+
+  # Make home the root of the site.
   root 'home#home'
-  get '/contact' => 'home#contact'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
