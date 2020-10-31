@@ -20,9 +20,9 @@
     // include header partial
     = render 'shared/header'
 
-    // generate content for each flash message received after redirect
+    // generate content for each flash message received after redirect, and style according to key
     - flash.each do |key, value|
-      = content_tag :div, content_tag(:p, value), id: "#{key}" unless value.blank?
+      = content_tag :div, content_tag(:p, value), class: "#{flash_class(key)}" unless value.blank?
 
     // include view corresponding to action
     = yield

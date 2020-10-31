@@ -8,7 +8,7 @@ document.addEventListener("turbolinks:load", function() {
       // Ensure telephone is a string of digits only.
       telephone: {digits: true, required: true},
       // Ensure email has appropriate format.
-      email: {email: true, required: true}
+      email: {email: true}
     },
     // Custom error messages.
     messages: {
