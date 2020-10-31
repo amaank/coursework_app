@@ -40,7 +40,7 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
 
   test "should post request contact" do
     post request_contact_url, params:
-      {name: "Matthew", email: "matthew@me.com",
+      {name: "Amaan", email: "amaan@me.com",
       telephone: "1234567890", message: "Hello"}
     assert_response :redirect
       assert_nil flash[:alert]
