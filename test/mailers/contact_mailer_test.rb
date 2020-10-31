@@ -7,8 +7,8 @@ class ContactMailerTest < ActionMailer::TestCase
     mail = ContactMailer.contact_email("amaan@me.com",
       "Amaan Khalid", "1234567890", @message = "Hello")
     # Test content of returned email.
-    assert_equal ['info@carparkspacebooker.com'], mail.to
-    assert_equal ['info@carparkspacebooker.com'], mail.from
+    assert_equal ['info@parkmycars.com'], mail.to
+    assert_equal ['info@parkmycars.com'], mail.from
   end
 
 end

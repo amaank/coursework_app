@@ -13,7 +13,7 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_template partial: '_header', count: 1
 
     # Test view content.
-    assert_select 'title', 'Car Park Space Bookings'
+    assert_select 'title', 'ParkMyCar'
     assert_select 'h1', 'Home Page'
     assert_select 'p', 'Welcome to the home page!'
   end
@@ -30,7 +30,7 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_template partial: '_header', count: 1
 
     # Test view content.
-    assert_select 'title', 'Car Park Space Bookings'
+    assert_select 'title', 'ParkMyCar'
     assert_select 'h1', 'Contact Us'
     assert_select 'p', 'Complete the following form to get in touch with us.'
   end

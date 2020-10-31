@@ -1,2 +1,9 @@
-%header
-  %h1 Header
+%nav.navbar.navbar-inverse
+  .container-fluid
+    .navbar-header
+      %a.navbar-brand{:href => root_path}= t('.title')
+    %ul.nav.navbar-nav
+      %li
+        %a{:href => root_path}= t('.home')
+      %li
+        %a{:href => contact_path}= t('.contact')

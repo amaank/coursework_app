@@ -30,8 +30,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  app_title: Car Park Space Bookings
+  app_title: ParkMyCar
   app_description: A place where you can book a space in a car park.
+
+  shared:
+    header:
+      title: ParkMyCar
+      home: Home
+      contact: Contact
 
   home:
     home:
