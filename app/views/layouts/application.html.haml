@@ -17,11 +17,15 @@
 
   %body
 
+    // include header partial
     = render 'shared/header'
 
+    // generate content for each flash message received after redirect
     - flash.each do |key, value|
       = content_tag :div, content_tag(:p, value), id: "#{key}" unless value.blank?
 
+    // include view corresponding to action
     = yield
 
+    // include footer partial
     = render 'shared/footer'
