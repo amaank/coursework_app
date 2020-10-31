@@ -31,12 +31,13 @@
 
 en:
   app_title: Car Park Space Bookings
-  app_description: A place where you can book a space in a car park
+  app_description: A place where you can book a space in a car park.
 
   home:
     home:
       title: Home Page
       welcome: Welcome to the home page!
+
     contact:
-      title: Contact Page
-      welcome: Welcome to the contact page!
+      title: Contact Us
+      contact_us: Complete the following form to get in touch with us.
