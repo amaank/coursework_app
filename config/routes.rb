@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   resources :vehicles
   # Manually define routes here if you later find out you don't need some routes
 
+  # Routes for bookings.
+  resources :bookings
+  # Manually define routes here if you later find out you don't need some routes
+
   # Make home the root of the site.
   root 'home#home'
 end

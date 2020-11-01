@@ -1,0 +1,22 @@
+= form_for @booking do |f|
+  - if @booking.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@booking.errors.count, t('.error'))} #{t('.error_message')}"
+      %ul
+        - @booking.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :space
+    = f.text_field :space
+  .field
+    = f.label :vehicle
+    = f.text_field :vehicle
+  .field
+    = f.label :cost_type
+    = f.text_field :cost_type
+  .field
+    = f.label :date
+    = f.date_select :date
+  .actions
+    = f.submit t('.submit')

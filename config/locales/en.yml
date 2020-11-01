@@ -84,8 +84,9 @@ en:
 
   vehicles:
     form:
-      submit: Save
+      error: error
       error_message: "prohibited this vehicle from being saved:"
+      submit: Save
     edit:
       title: Editing Vehicle
       show: Show
@@ -99,8 +100,8 @@ en:
       show: Show
       edit: Update
       destroy: Unregister
-      new: New Vehicle
       confirmation: Are you sure?
+      new: New Vehicle
     new:
       title: New Vehicle
       back: Back
@@ -118,3 +119,40 @@ en:
       success: Vehicle was successfully updated.
     destroy:
       success: Vehicle was successfully unregistered.
+
+  bookings:
+    form:
+      error: error
+      error_message: "prohibited this vehicle from being saved:"
+      submit: Save
+    edit:
+      title: Editing Booking
+      show: Show
+      back: Back
+    index:
+      title: Listing Bookings
+      space: Space
+      vehicle: Vehicle
+      cost_type: Cost Type
+      date: Date
+      show: Show
+      edit: Update
+      destroy: Remove
+      confirmation: Are you sure?
+      new: New Booking
+    new:
+      title: New Booking
+      back: Back
+    show:
+      space: "Space:"
+      vehicle: "Vehicle:"
+      cost_type: "Cost Type:"
+      date: "Date:"
+      edit: Update
+      back: Back
+    create:
+      success: Booking was successfully made.
+    update:
+      success: Booking was successfully updated.
+    destroy:
+      success: Booking was successfully removed.

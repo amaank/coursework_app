@@ -1,0 +1,16 @@
+%p
+  %b= t('.space')
+  = @booking.space
+%p
+  %b= t('.vehicle')
+  = @booking.vehicle
+%p
+  %b= t('.cost_type')
+  = @booking.cost_type
+%p
+  %b= t('.date')
+  = @booking.date
+
+= link_to t('.edit'), edit_booking_path(@booking)
+\|
+= link_to t('.back'), bookings_path

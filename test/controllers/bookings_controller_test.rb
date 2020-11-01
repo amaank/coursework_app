@@ -1,14 +1,14 @@
 require 'test_helper'
 
-class VehiclesControllerTest < ActionDispatch::IntegrationTest
+class BookingsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @vehicle = vehicles(:one)
+    @booking = bookings(:one)
   end
 
   # Test index action.
   test "should get index" do
     # Test RESTful route.
-    get vehicles_url
+    get bookings_url
     assert_response :success
 
     # Test inclusion of necessary view files.
@@ -17,18 +17,18 @@ class VehiclesControllerTest < ActionDispatch::IntegrationTest
     assert_template partial: '_header', count: 1
 
     # Test basic view content.
-    assert_select 'h1', 'Listing Vehicles'
-    assert_select 'th', 'Registration Number'
-    assert_select 'th', 'Make'
-    assert_select 'th', 'Model'
-    assert_select 'th', 'Colour'
-    assert_select 'a', 'New Vehicle'
+    assert_select 'h1', 'Listing Bookings'
+    assert_select 'th', 'Space'
+    assert_select 'th', 'Vehicle'
+    assert_select 'th', 'Cost Type'
+    assert_select 'th', 'Date'
+    assert_select 'a', 'New Booking'
   end
 
   # Test new action.
   test "should get new" do
     # Test RESTful route.
-    get new_vehicle_url
+    get new_booking_url
     assert_response :success
 
     # Test inclusion of necessary view files.
@@ -38,25 +38,25 @@ class VehiclesControllerTest < ActionDispatch::IntegrationTest
     assert_template partial: '_form', count: 1
 
     # Test basic view content.
-    assert_select 'h1', 'New Vehicle'
+    assert_select 'h1', 'New Booking'
     assert_select 'a', 'Back'
+
   end
 
   # Test create action.
-  test "should create vehicle" do
-    assert_difference('Vehicle.count') do
+  test "should create booking" do
+    assert_difference('Booking.count') do
       # Test RESTful route.
-      post vehicles_url, params: { vehicle: { colour: @vehicle.colour, make: @vehicle.make, model: @vehicle.model, registration_number: @vehicle.registration_number } }
+      post bookings_url, params: { booking: { cost_type_id: @booking.cost_type_id, date: @booking.date, space_id: @booking.space_id, vehicle_id: @booking.vehicle_id } }
     end
-
     # Test for redirect after successful 'post' request.
-    assert_redirected_to vehicle_url(Vehicle.last)
+    assert_redirected_to booking_url(Booking.last)
   end
 
   # Test show action.
-  test "should show vehicle" do
+  test "should show booking" do
     # Test RESTful route.
-    get vehicle_url(@vehicle)
+    get booking_url(@booking)
     assert_response :success
 
     # Test inclusion of necessary view files.
@@ -72,7 +72,7 @@ class VehiclesControllerTest < ActionDispatch::IntegrationTest
   # Test edit action.
   test "should get edit" do
     # Test RESTful route.
-    get edit_vehicle_url(@vehicle)
+    get edit_booking_url(@booking)
     assert_response :success
 
     # Test inclusion of necessary view files.
@@ -82,26 +82,26 @@ class VehiclesControllerTest < ActionDispatch::IntegrationTest
     assert_template partial: '_form', count: 1
 
     # Test basic view content.
-    assert_select 'h1', 'Editing Vehicle'
+    assert_select 'h1', 'Editing Booking'
     assert_select 'a', 'Show'
     assert_select 'a', 'Back'
   end
 
   # Test update action.
-  test "should update vehicle" do
+  test "should update booking" do
     # Test RESTful route.
-    patch vehicle_url(@vehicle), params: { vehicle: { colour: @vehicle.colour, make: @vehicle.make, model: @vehicle.model, registration_number: @vehicle.registration_number } }
+    patch booking_url(@booking), params: { booking: { cost_type_id: @booking.cost_type_id, date: @booking.date, space_id: @booking.space_id, vehicle_id: @booking.vehicle_id } }
     # Test for redirect after successful 'patch' request.
-    assert_redirected_to vehicle_url(@vehicle)
+    assert_redirected_to booking_url(@booking)
   end
 
   # Test destroy action.
-  test "should destroy vehicle" do
-    assert_difference('Vehicle.count', -1) do
+  test "should destroy booking" do
+    assert_difference('Booking.count', -1) do
       # Test RESTful route.
-      delete vehicle_url(@vehicle)
+      delete booking_url(@booking)
     end
     # Test for redirect after successful 'delete' request.
-    assert_redirected_to vehicles_url
+    assert_redirected_to bookings_url
   end
 end
