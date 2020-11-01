@@ -1,0 +1,21 @@
+%h1= t('.title')
+
+%table
+  %thead
+    %tr
+      %th= t('.floor')
+      %th= t('.row')
+      %th= t('.column')
+      %th
+      %th
+      %th
+
+  %tbody
+    - @spaces.each do |space|
+      %tr
+        %td= space.floor
+        %td= space.row
+        %td= space.column
+        // uncomment once you add the space records: %td= link_to t('.show'), space
+
+%br

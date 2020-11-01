@@ -12,7 +12,7 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_template partial: '_footer', count: 1
     assert_template partial: '_header', count: 1
 
-    # Test view content.
+    # Test basic view content.
     assert_select 'title', 'ParkMyCar'
     assert_select 'h1', 'Home Page'
     assert_select 'p', 'Welcome to the home page!'
@@ -29,7 +29,7 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_template partial: '_footer', count: 1
     assert_template partial: '_header', count: 1
 
-    # Test view content.
+    # Test basic view content.
     assert_select 'title', 'ParkMyCar'
     assert_select 'h1', 'Contact Us'
     assert_select 'p', 'Complete the following form to get in touch with us.'

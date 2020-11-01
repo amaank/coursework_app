@@ -61,3 +61,16 @@ en:
     request_contact:
       no_email: You must supply an email address.
       email_sent: Thank you. We will be in touch shortly.
+
+  spaces:
+    index:
+      title: Listing spaces
+      floor: Floor
+      row: Row
+      column: Column
+      show: Show
+    show:
+      floor: Floor
+      row: Row
+      column: Column
+      back: Back

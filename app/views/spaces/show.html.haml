@@ -1,0 +1,13 @@
+%p#notice= notice
+
+%p
+  %b= t('.floor'):
+  = @space.floor
+%p
+  %b= t('.row'):
+  = @space.row
+%p
+  %b= t('.column'):
+  = @space.column
+
+= link_to t('.show'), spaces_path
