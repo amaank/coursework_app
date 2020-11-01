@@ -62,9 +62,16 @@ en:
       no_email: You must supply an email address.
       email_sent: Thank you. We will be in touch shortly.
 
+  cost_types:
+    index:
+      title: Listing Cost Types
+      name: Name
+      price: Price
+      description: Description
+
   spaces:
     index:
-      title: Listing spaces
+      title: Listing Spaces
       floor: Floor
       row: Row
       column: Column

@@ -1,0 +1,20 @@
+%h1= t('.title')
+
+%table
+  %thead
+    %tr
+      %th= t('.name')
+      %th= t('.price')
+      %th= t('.description')
+      %th
+      %th
+      %th
+
+  %tbody
+    - @cost_types.each do |cost_type|
+      %tr
+        %td= cost_type.name
+        %td= cost_type.price
+        %td= cost_type.description
+
+%br

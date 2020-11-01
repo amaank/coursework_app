@@ -17,7 +17,7 @@ class SpacesControllerTest < ActionDispatch::IntegrationTest
     assert_template partial: '_header', count: 1
 
     # Test basic view content.
-    assert_select 'h1', 'Listing spaces'
+    assert_select 'h1', 'Listing Spaces'
     assert_select 'th', 'Floor'
     assert_select 'th', 'Row'
     assert_select 'th', 'Column'

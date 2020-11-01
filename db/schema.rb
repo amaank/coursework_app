@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_01_072432) do
+ActiveRecord::Schema.define(version: 2020_11_01_094200) do
+
+  create_table "cost_types", force: :cascade do |t|
+    t.string "name"
+    t.decimal "price"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "spaces", force: :cascade do |t|
     t.integer "floor"
