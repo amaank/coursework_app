@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_01_094200) do
+ActiveRecord::Schema.define(version: 2020_11_01_110405) do
 
   create_table "cost_types", force: :cascade do |t|
     t.string "name"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 2020_11_01_094200) do
     t.integer "floor"
     t.integer "row"
     t.integer "column"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "vehicles", force: :cascade do |t|
+    t.string "registration_number"
+    t.string "make"
+    t.string "model"
+    t.string "colour"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

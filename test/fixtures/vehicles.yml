@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  registration_number: MyString
+  make: MyString
+  model: MyString
+  colour: MyString
+
+two:
+  registration_number: MyString
+  make: MyString
+  model: MyString
+  colour: MyString

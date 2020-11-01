@@ -81,3 +81,40 @@ en:
       row: Row
       column: Column
       back: Back
+
+  vehicles:
+    form:
+      submit: Save
+      error_message: "prohibited this vehicle from being saved:"
+    edit:
+      title: Editing Vehicle
+      show: Show
+      back: Back
+    index:
+      title: Listing Vehicles
+      reg_number: Registration Number
+      make: Make
+      model: Model
+      colour: Colour
+      show: Show
+      edit: Update
+      destroy: Unregister
+      new: New Vehicle
+      confirmation: Are you sure?
+    new:
+      title: New Vehicle
+      back: Back
+    show:
+      reg_number: "Registration Number:"
+      make: "Make:"
+      model: "Model:"
+      colour: "Colour:"
+      edit: Update
+      back: Back
+
+    create:
+      success: Vehicle was successfully registered.
+    update:
+      success: Vehicle was successfully updated.
+    destroy:
+      success: Vehicle was successfully unregistered.
