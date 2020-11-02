@@ -3,7 +3,7 @@ require 'test_helper'
 class HomeControllerTest < ActionDispatch::IntegrationTest
   # Test home action.
   test "should get home" do
-    # Test restful route.
+    # Test RESTful route.
     get root_url
     assert_response :success
 
@@ -20,7 +20,7 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
 
   # Test contact action.
   test "should get contact" do
-    # Test restful route.
+    # Test RESTful route.
     get contact_url
     assert_response :success
 

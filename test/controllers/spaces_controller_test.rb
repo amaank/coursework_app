@@ -7,7 +7,7 @@ class SpacesControllerTest < ActionDispatch::IntegrationTest
 
   # Test index action.
   test "should get index" do
-    # Test restful route.
+    # Test RESTful route.
     get spaces_url
     assert_response :success
 
@@ -28,7 +28,7 @@ class SpacesControllerTest < ActionDispatch::IntegrationTest
   # AS THE 'SHOW' METHOD CANNOT BE TESTED WITHOUT RECORDS TO SHOW
   # Test show action.
   test "should show space" do
-    # Test restful route.
+    # Test RESTful route.
     # get spaces_url(@space)
     # assert_response :success
 
