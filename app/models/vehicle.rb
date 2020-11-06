@@ -4,11 +4,12 @@ class Vehicle < ApplicationRecord
   has_many :bookings, dependent: :destroy
 
   # Validations.
-  # ADD VALIDATION FOR NUMBER PLATE/REGISTRATION NUMBER USING 'FORMAT' HELPER
-  # FOR NUMBER PLATE FORMAT: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/359317/INF104_160914.pdf
-  # SEE IF YOU CAN TAKE OLD NUMBER PLATE FORMAT INTO ACCOUNT I.E. FOR OLDER CARS
-  validates :make, :model, :colour, length: { minimum: 2 }
+  validates :registration_number, format: { with: /\A[A-Za-z]{2}\d{2}\s{1}[A-Za-z]{3}\z/,
+    message: I18n.t('vehicles.validation.invalid_reg_number') }
+
   validates :registration_number, :make, :model, presence: true
+  validates :make, :model, length: { minimum: 2 }
+
   # Ensure the reg. number/number plate has not already been registered on the site.
-  validates :registration_number, uniqueness: { case_sensitive: false } # Is this correct? Made case_sensitive false to prevent the same number plate being added twice if it has different cases.
+  validates :registration_number, uniqueness: { case_sensitive: false }
 end

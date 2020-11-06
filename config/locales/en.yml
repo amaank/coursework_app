@@ -112,6 +112,8 @@ en:
       colour: "Colour:"
       edit: Update
       back: Back
+    validation:
+      invalid_reg_number: "must be in line with the current format (two letters and two numbers, followed by a space and then three letters), for example: AB12 CDE. If you have an older or private registration, please get in touch via the contact page!"
 
     create:
       success: Vehicle was successfully registered.
@@ -156,3 +158,6 @@ en:
       success: Booking was successfully updated.
     destroy:
       success: Booking was successfully removed.
+    validation:
+      invalid_space: cannot be booked twice for one day.
+      invalid_vehicle: A vehicle cannot be booked twice for one day.
