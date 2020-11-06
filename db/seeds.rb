@@ -8,6 +8,8 @@
 
 # Parking space data.
 
+Space.delete_all
+
 # Floor 1: 6 rows, 5 columns (30 spaces)
 for i in 1..6 do
   for j in 1..5 do
@@ -35,6 +37,8 @@ for i in 1..4 do
     Space.create(floor: 4, row: i, column: j)
   end
 end
+
+CostType.delete_all
 
 # Cost types data.
 CostType.create(name: "Basic", price: 7.5, description: "Our basic parking tier provides you with a traditional parking experience, with no additional services included.")
