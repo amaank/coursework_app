@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_07_095309) do
+ActiveRecord::Schema.define(version: 2020_11_07_113619) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer "space_id", null: false
@@ -27,19 +27,21 @@ ActiveRecord::Schema.define(version: 2020_11_07_095309) do
   end
 
   create_table "cost_types", force: :cascade do |t|
-    t.string "name"
-    t.decimal "price", precision: 5, scale: 2
-    t.text "description"
+    t.string "name", null: false
+    t.decimal "price", precision: 5, scale: 2, null: false
+    t.text "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_cost_types_on_name", unique: true
   end
 
   create_table "spaces", force: :cascade do |t|
-    t.integer "floor"
-    t.integer "row"
-    t.integer "column"
+    t.integer "floor", null: false
+    t.integer "row", null: false
+    t.integer "column", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["floor", "row", "column"], name: "index_spaces_on_floor_and_row_and_column", unique: true
   end
 
   create_table "vehicles", force: :cascade do |t|
