@@ -9,5 +9,6 @@ class CostType < ApplicationRecord
   # Prevent multiple cost types with the same name, regardless of case.
   validates :name, uniqueness: { case_sensitive: false }
   # Prevent negative values for price.
-  validates_numericality_of :price, :greater_than => 0.0
+  validates :price, numericality: { greater_than: 0.0}
+
 end

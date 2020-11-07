@@ -76,11 +76,6 @@ en:
       row: Row
       column: Column
       show: Show
-    show:
-      floor: Floor
-      row: Row
-      column: Column
-      back: Back
 
   vehicles:
     form:
