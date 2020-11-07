@@ -47,7 +47,7 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
   test "should create booking" do
     assert_difference('Booking.count') do
       # Test RESTful route.
-      post bookings_url, params: { booking: { cost_type_id: @booking.cost_type_id, date: @booking.date, space_id: @booking.space_id, vehicle_id: @booking.vehicle_id } }
+      post bookings_url, params: { booking: { cost_type_id: @booking.cost_type_id, date: @booking.date + 1.day, space_id: @booking.space_id, vehicle_id: @booking.vehicle_id } }
     end
     # Test for redirect after successful 'post' request.
     assert_redirected_to booking_url(Booking.last)

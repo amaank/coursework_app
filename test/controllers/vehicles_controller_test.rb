@@ -46,7 +46,7 @@ class VehiclesControllerTest < ActionDispatch::IntegrationTest
   test "should create vehicle" do
     assert_difference('Vehicle.count') do
       # Test RESTful route.
-      post vehicles_url, params: { vehicle: { colour: @vehicle.colour, make: @vehicle.make, model: @vehicle.model, registration_number: @vehicle.registration_number } }
+      post vehicles_url, params: { vehicle: { colour: @vehicle.colour, make: @vehicle.make, model: @vehicle.model, registration_number: (@vehicle.registration_number)[0..3] + " ABC" } }
     end
 
     # Test for redirect after successful 'post' request.
