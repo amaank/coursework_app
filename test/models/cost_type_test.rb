@@ -13,42 +13,42 @@ class CostTypeTest < ActiveSupport::TestCase
   test "invalid without name" do
     @cost_type.name = nil
     refute @cost_type.valid?
-    assert_not_nil @cost_type.errors[:name]
+    assert @cost_type.errors.key?(:name)
   end
 
   test "invalid without price" do
     @cost_type.price = nil
     refute @cost_type.valid?
-    assert_not_nil @cost_type.errors[:price]
+    assert @cost_type.errors.key?(:price)
   end
 
   test "invalid without description" do
     @cost_type.description = nil
     refute @cost_type.valid?
-    assert_not_nil @cost_type.errors[:description]
+    assert @cost_type.errors.key?(:description)
   end
 
   test "invalid if name length less than 2" do
     @cost_type.name = "a"
     refute @cost_type.valid?
-    assert_not_nil @cost_type.errors[:name]
+    assert @cost_type.errors.key?(:name)
   end
 
   test "invalid if description length less than 2" do
     @cost_type.description = "a"
     refute @cost_type.valid?
-    assert_not_nil @cost_type.errors[:description]
+    assert @cost_type.errors.key?(:description)
   end
 
   test "invalid if duplicate name, case-insensitive" do
     @cost_type.name = @used_name.swapcase
     refute @cost_type.valid?
-    assert_not_nil @cost_type.errors[:name]
+    assert @cost_type.errors.key?(:name)
   end
 
   test "invalid if price less than 0" do
     @cost_type.price = -1.0
     refute @cost_type.valid?
-    assert_not_nil @cost_type.errors[:price]
+    assert @cost_type.errors.key?(:price)
   end
 end
