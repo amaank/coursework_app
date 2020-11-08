@@ -35,6 +35,8 @@ class SpaceTest < ActiveSupport::TestCase
     @space.row = used.row
     @space.column = used.column
     refute @space.valid?
-    assert_not_nil @space.errors[:index_spaces_on_floor_and_row_and_column]
+    assert_not_nil @space.errors[:floor]
+    assert_not_nil @space.errors[:row]
+    assert_not_nil @space.errors[:column]
   end
 end
