@@ -46,8 +46,9 @@ class VehicleTest < ActiveSupport::TestCase
   end
 
   test "invalid if duplicate registration number, case-insensitive" do
-    @vehicle.registration_number = Vehicle.first.registration_number.swapcase
-    refute @vehicle.valid?
-    assert @vehicle.errors.key?(:registration_number)
+    @vehicle.save
+    new_vehicle = Vehicle.new(registration_number: @vehicle.registration_number.swapcase, make: "Audi", model: "R8", colour: "White")
+    refute new_vehicle.valid?
+    assert new_vehicle.errors.key?(:registration_number)
   end
 end

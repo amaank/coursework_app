@@ -38,9 +38,10 @@ for i in 1..4 do
   end
 end
 
+# Cost types data.
+
 CostType.delete_all
 
-# Cost types data.
 CostType.create(name: "Basic", price: 7.5, description: "Our basic parking tier provides you with a traditional parking experience, with no additional services included.")
 CostType.create(name: "Standard Valet", price: 12.5, description: "Standard-tier valet takes the stress out of parking your own vehicle, by offering you the services of one of our well-trained staff who will park your car for you, and bring it out to meet you upon your return.")
 CostType.create(name: "Advanced Valet", price: 17.5, description: "For those looking to get more out of their everyday park, advanced-tier valet parking offers an external wash of your car, in addition to the standard-tier valet benefits.")
