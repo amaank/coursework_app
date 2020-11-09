@@ -51,4 +51,16 @@ class CostTypeTest < ActiveSupport::TestCase
     refute @cost_type.valid?
     assert @cost_type.errors.key?(:price)
   end
+
+  test "should be able to have many bookings" do
+    assert_difference('@cost_type.bookings.size', 2) do
+      @cost_type.save
+      vehicle = Vehicle.new(registration_number: "XX00 XZZ", make: "Ford", model: "Focus", colour: "Blue")
+      vehicle.save
+      booking_one = Booking.new(space_id: Space.first.id, vehicle_id: vehicle.id, cost_type_id: @cost_type.id, date: 1010-10-10)
+      booking_one.save
+      booking_two = Booking.new(space_id: Space.first.id, vehicle_id: vehicle.id, cost_type_id: @cost_type.id, date: 1005-10-10)
+      booking_two.save
+    end
+  end
 end

@@ -51,4 +51,14 @@ class VehicleTest < ActiveSupport::TestCase
     refute new_vehicle.valid?
     assert new_vehicle.errors.key?(:registration_number)
   end
+
+  test "should be able to have bookings" do
+    assert_difference('@vehicle.bookings.size', 2) do
+      @vehicle.save
+      booking_one = Booking.new(space_id: Space.first.id, vehicle_id: @vehicle.id, cost_type_id: CostType.first.id, date: 1010-10-10)
+      booking_one.save
+      booking_two = Booking.new(space_id: Space.first.id, vehicle_id: @vehicle.id, cost_type_id: CostType.first.id, date: 1005-10-10)
+      booking_two.save
+    end
+  end
 end
