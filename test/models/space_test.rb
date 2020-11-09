@@ -40,7 +40,7 @@ class SpaceTest < ActiveSupport::TestCase
     assert @space.errors.key?(:floor)
   end
 
-  test "should be able to have bookings" do
+  test "should be able to have many bookings" do
     assert_difference('@space.bookings.size', 2) do
       @space.save
       vehicle = Vehicle.new(registration_number: "XX00 XZZ", make: "Ford", model: "Focus", colour: "Blue")
