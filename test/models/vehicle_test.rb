@@ -61,4 +61,12 @@ class VehicleTest < ActiveSupport::TestCase
       booking_two.save
     end
   end
+
+  test "when destroyed, should have bookings destroyed" do
+    @vehicle.save
+    booking = Booking.new(space_id: Space.first.id, vehicle_id: @vehicle.id, cost_type_id: CostType.first.id, date: 1010-10-10)
+    booking.save
+    assert @vehicle.destroy
+    assert_raise(ActiveRecord::RecordNotFound) { booking.reload }
+  end
 end
