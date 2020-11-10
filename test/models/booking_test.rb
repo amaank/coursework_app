@@ -3,15 +3,15 @@ require 'test_helper'
 class BookingTest < ActiveSupport::TestCase
   def setup
     # Make use of an existing record in 'spaces' that should always be present.
-    space = Space.first
+    @space = Space.first
     # Create new object for testing purposes, as cannot rely on 'vehicles' table having more than 0 records.
-    vehicle = Vehicle.new(registration_number: "QR00 EFG", make: "Subaru", model: "Impreza", colour: "Blue")
+    @vehicle = Vehicle.new(registration_number: "QR00 EFG", make: "Subaru", model: "Impreza", colour: "Blue")
     # Save object to the database.
-    vehicle.save
+    @vehicle.save
     # Make use of an existing record in 'cost_types' that should always be present.
-    cost_type = CostType.first
-    # Define instance variable (a valid 'booking' object) for use in following test cases.
-    @booking = Booking.new(space_id: space.id, vehicle_id: vehicle.id, cost_type_id: cost_type.id, date: 1111-11-11)
+    @cost_type = CostType.first
+    # Create a valid 'booking' object.
+    @booking = Booking.new(space_id: @space.id, vehicle_id: @vehicle.id, cost_type_id: @cost_type.id, date: 1111-11-11)
   end
 
   test "valid booking" do
@@ -98,5 +98,20 @@ class BookingTest < ActiveSupport::TestCase
     # Uniqueness validation is on the vehicle_id attribute, limited by date
     # Hence errors will be produced for the vehicle_id attribute only, in this case
     assert new_booking.errors.key?(:vehicle_id)
+  end
+
+  test "should belong to one space" do
+    # Test belongs_to side of association (with Space) using .space method provided by ORM.
+    assert @booking.space == @space
+  end
+
+  test "should belong to one vehicle" do
+    # Test belongs_to side of association (with Vehicle) using .vehicle method provided by ORM.
+    assert @booking.vehicle == @vehicle
+  end
+
+  test "should belong to one cost_type" do
+    # Test belongs_to side of association (with CostType) using .cost_type method provided by ORM.
+    assert @booking.cost_type == @cost_type
   end
 end
