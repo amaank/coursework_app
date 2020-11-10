@@ -1,5 +1,6 @@
 class CostType < ApplicationRecord
   # There may be 0 or more bookings which cost the same amount.
+  # cost_type not intended to be destroyable, thus no action taken on dependent bookings if destroyed.
   has_many :bookings
 
   # Ensure that values have been specified for all attributes.
