@@ -80,16 +80,16 @@ class SpaceTest < ActiveSupport::TestCase
     assert_difference('@space.bookings.size', 2) do
       # Save object to database.
       @space.save
-      # Create new object for testing purposes, as cannot rely on 'vehicles' table having more than 0 records.
-      vehicle = Vehicle.new(registration_number: "XX00 XZZ", make: "Ford", model: "Focus", colour: "Blue")
+      # Create new vehicle object.
+      vehicle = vehicles(:one)
       # Save this to the database.
       vehicle.save
       # Create new booking object which references our space object.
-      booking_one = Booking.new(space_id: @space.id, vehicle_id: vehicle.id, cost_type_id: CostType.first.id, date: 1010-10-10)
+      booking_one = Booking.new(space_id: @space.id, vehicle_id: vehicle.id, cost_type_id: CostType.first.id, date: Date.today)
       # Save this to the database.
       booking_one.save
       # Create another booking object which also references our space object.
-      booking_two = Booking.new(space_id: @space.id, vehicle_id: vehicle.id, cost_type_id: CostType.first.id, date: 1005-10-10)
+      booking_two = Booking.new(space_id: @space.id, vehicle_id: vehicle.id, cost_type_id: CostType.first.id, date: Date.tomorrow)
       # And also save to the database.
       booking_two.save
     end

@@ -3,7 +3,8 @@ require 'test_helper'
 class VehicleTest < ActiveSupport::TestCase
   def setup
     # Create a valid 'Vehicle' object.
-    @vehicle = Vehicle.new(registration_number: "XX00 XXX", make: "Ford", model: "Focus", colour: "Blue")
+    @vehicle = vehicles(:one)
+    @vehicle.registration_number = "XX00 XXX"
   end
 
   test "valid vehicle" do
@@ -63,7 +64,8 @@ class VehicleTest < ActiveSupport::TestCase
     @vehicle.save
     # Create a new vehicle object with the same registration_number value as the object we just saved.
     # Swap the case before assigning the registration_number value, to test that case is ignored by the validation.
-    new_vehicle = Vehicle.new(registration_number: @vehicle.registration_number.swapcase, make: "Audi", model: "R8", colour: "White")
+    new_vehicle = vehicles(:two)
+    new_vehicle.registration_number = @vehicle.registration_number.swapcase
     refute new_vehicle.valid?
     # Check that object is invalid due to invalid (duplicate) value for registration_number attribute.
     assert new_vehicle.errors.key?(:registration_number)
@@ -75,11 +77,11 @@ class VehicleTest < ActiveSupport::TestCase
       # Save object to database.
       @vehicle.save
       # Create new booking object which references this vehicle object.
-      booking_one = Booking.new(space_id: Space.first.id, vehicle_id: @vehicle.id, cost_type_id: CostType.first.id, date: 1010-10-10)
+      booking_one = Booking.new(space_id: Space.first.id, vehicle_id: @vehicle.id, cost_type_id: CostType.first.id, date: Date.today)
       # Save this to the database.
       booking_one.save
       # Create another booking object which also references the vehicle object.
-      booking_two = Booking.new(space_id: Space.first.id, vehicle_id: @vehicle.id, cost_type_id: CostType.first.id, date: 1005-10-10)
+      booking_two = Booking.new(space_id: Space.first.id, vehicle_id: @vehicle.id, cost_type_id: CostType.first.id, date: Date.tomorrow)
       # Also save this to the database.
       booking_two.save
     end
@@ -89,7 +91,7 @@ class VehicleTest < ActiveSupport::TestCase
     # Save vehicle to the database so we can test destroying it.
     @vehicle.save
     # Create a booking object which references this vehicle object.
-    booking = Booking.new(space_id: Space.first.id, vehicle_id: @vehicle.id, cost_type_id: CostType.first.id, date: 1010-10-10)
+    booking = Booking.new(space_id: Space.first.id, vehicle_id: @vehicle.id, cost_type_id: CostType.first.id, date: Date.today)
     # Save to database.
     booking.save
     # Destroy the vehicle object (record) and check that it was successful.

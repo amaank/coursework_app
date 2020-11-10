@@ -4,14 +4,14 @@ class BookingTest < ActiveSupport::TestCase
   def setup
     # Make use of an existing record in 'spaces' that should always be present.
     @space = Space.first
-    # Create new object for testing purposes, as cannot rely on 'vehicles' table having more than 0 records.
-    @vehicle = Vehicle.new(registration_number: "QR00 EFG", make: "Subaru", model: "Impreza", colour: "Blue")
+    # Create new vehicle object.
+    @vehicle = vehicles(:one)
     # Save object to the database.
     @vehicle.save
     # Make use of an existing record in 'cost_types' that should always be present.
     @cost_type = CostType.first
     # Create a valid 'booking' object.
-    @booking = Booking.new(space_id: @space.id, vehicle_id: @vehicle.id, cost_type_id: @cost_type.id, date: 1111-11-11)
+    @booking = Booking.new(space_id: @space.id, vehicle_id: @vehicle.id, cost_type_id: @cost_type.id, date: Date.today)
   end
 
   test "valid booking" do
@@ -77,11 +77,11 @@ class BookingTest < ActiveSupport::TestCase
   test "invalid if duplicate space_id and date combination" do
     # Save object to the database.
     @booking.save
-    # Create new object for testing purposes, as cannot rely on 'vehicles' table having more than 0 records.
-    new_vehicle = Vehicle.new(registration_number: "XW11 XYZ", make: "Bugatti", model: "Veyron", colour: "Red")
+    # Create new vehicle object.
+    new_vehicle = vehicles(:two)
     # Save object to the database.
     new_vehicle.save
-    # Create new booking object with same space_id and date values as @booking
+    # Create new booking object with same space_id and date values as our booking.
     new_booking = Booking.new(space_id: @booking.space_id, vehicle_id: new_vehicle.id, cost_type_id: CostType.second.id, date: @booking.date)
     refute new_booking.valid?
     # Uniqueness validation is on the space_id attribute, limited by date
@@ -92,7 +92,7 @@ class BookingTest < ActiveSupport::TestCase
   test "invalid if duplicate vehicle_id and date combination" do
     # Save object to the database.
     @booking.save
-    # Create new booking object with same vehicle_id and date values as @booking
+    # Create new booking object with same vehicle_id and date values as our booking.
     new_booking = Booking.new(space_id: Space.second.id, vehicle_id: @booking.vehicle_id, cost_type_id: CostType.second.id, date: @booking.date)
     refute new_booking.valid?
     # Uniqueness validation is on the vehicle_id attribute, limited by date

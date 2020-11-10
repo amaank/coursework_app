@@ -5,7 +5,8 @@ class CostTypeTest < ActiveSupport::TestCase
     # Make use of an existing record in 'cost_types' that should always be present.
     @used_name = CostType.first.name
     # Create a valid 'CostType' object.
-    @cost_type = CostType.new(name: @used_name + "new", price: 1.0, description: "description")
+    @cost_type = cost_types(:one)
+    @cost_type.name += "X"
   end
 
   test "valid cost_type" do
@@ -63,7 +64,7 @@ class CostTypeTest < ActiveSupport::TestCase
 
   test "invalid if price less than 0" do
     # Set value of price attribute to be less than 0.
-    @cost_type.price = -1.0
+    @cost_type.price *= -1
     refute @cost_type.valid?
     # Check that object is invalid due to invalid value for price attribute.
     assert @cost_type.errors.key?(:price)
@@ -74,16 +75,16 @@ class CostTypeTest < ActiveSupport::TestCase
     assert_difference('@cost_type.bookings.size', 2) do
       # Save object to database.
       @cost_type.save
-      # Create new object for testing purposes, as cannot rely on 'vehicles' table having more than 0 records.
-      vehicle = Vehicle.new(registration_number: "XX00 XZZ", make: "Ford", model: "Focus", colour: "Blue")
+      # Create new vehicle object.
+      vehicle = vehicles(:one)
       # Save object to database.
       vehicle.save
       # Create new booking object which references our cost_type object.
-      booking_one = Booking.new(space_id: Space.first.id, vehicle_id: vehicle.id, cost_type_id: @cost_type.id, date: 1010-10-10)
+      booking_one = Booking.new(space_id: Space.first.id, vehicle_id: vehicle.id, cost_type_id: @cost_type.id, date: Date.today)
       # Save this to the database.
       booking_one.save
       # Create another booking object which also references our cost_type object.
-      booking_two = Booking.new(space_id: Space.first.id, vehicle_id: vehicle.id, cost_type_id: @cost_type.id, date: 1005-10-10)
+      booking_two = Booking.new(space_id: Space.first.id, vehicle_id: vehicle.id, cost_type_id: @cost_type.id, date: Date.tomorrow)
       # And also save to the database.
       booking_two.save
     end

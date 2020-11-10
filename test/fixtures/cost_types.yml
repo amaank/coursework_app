@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: My String 1
+  name: A Cost Type
   price: 9.99
-  description: MyText
+  description: The cheaper cost type.
 
 two:
-  name: My String 2
-  price: 9.99
-  description: MyText
+  name: Another Cost Type
+  price: 19.98
+  description: The more expensive cost type.

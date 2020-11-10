@@ -2,12 +2,12 @@
 
 one:
   registration_number: AB12 CDE
-  make: MyString
-  model: MyString
-  colour: MyString
+  make: Ford
+  model: Focus
+  colour: Blue
 
 two:
   registration_number: FG34 HIJ
-  make: MyString
-  model: MyString
-  colour: MyString
+  make: Subaru
+  model: Impreza
+  colour: Blue
