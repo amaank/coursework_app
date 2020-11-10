@@ -8,7 +8,7 @@ class CostType < ApplicationRecord
   validates :name, :description, length: { minimum: 2 }
   # Prevent multiple cost types with the same name, regardless of case.
   validates :name, uniqueness: { case_sensitive: false }
-  # Prevent negative values for price.
+  # Prevent negative or zero values for price.
   validates :price, numericality: { greater_than: 0.0 }
 
 end

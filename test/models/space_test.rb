@@ -40,6 +40,24 @@ class SpaceTest < ActiveSupport::TestCase
     assert @space.errors.key?(:floor)
   end
 
+  test "invalid if floor not greater than 0" do
+    @space.floor = 0
+    refute @space.valid?
+    assert @space.errors.key?(:floor)
+  end
+
+  test "invalid if row not greater than 0" do
+    @space.row = 0
+    refute @space.valid?
+    assert @space.errors.key?(:row)
+  end
+
+  test "invalid if column not greater than 0" do
+    @space.column = 0
+    refute @space.valid?
+    assert @space.errors.key?(:column)
+  end
+
   test "should be able to have many bookings" do
     assert_difference('@space.bookings.size', 2) do
       @space.save

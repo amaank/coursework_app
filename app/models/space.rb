@@ -6,4 +6,6 @@ class Space < ApplicationRecord
   validates :floor, :row, :column, presence: true
   # A particular combination of floor, row and column denotes a unique space.
   validates :floor, uniqueness: { scope: [:row, :column] }
+  # Prevent negative or zero values for floor, row and column.
+  validates :floor, :row, :column, numericality: { greater_than: 0 }
 end
