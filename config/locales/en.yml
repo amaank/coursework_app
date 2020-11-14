@@ -38,6 +38,16 @@ en:
       title: ParkMyCar
       home: Home
       contact: Contact
+      vehicles: Vehicles
+    bookings_list:
+      space: Space
+      vehicle: Vehicle
+      cost_type: Cost Type
+      date: Date
+      show: Show Vehicle
+      edit: Update Booking
+      destroy: Remove Booking
+      confirmation: Are you sure?
 
   home:
     home:
@@ -107,6 +117,9 @@ en:
       colour: "Colour:"
       edit: Update
       back: Back
+      confirmation: Are you sure?
+      bookings: "Bookings:"
+      add: Add Booking
     validation:
       invalid_reg_number: "must be in line with the current format (two letters and two numbers, followed by a space and then three letters), for example: AB12 CDE. If you have an older or private registration, please get in touch via the contact page!"
 
@@ -127,15 +140,7 @@ en:
       show: Show
       back: Back
     index:
-      title: Listing Bookings
-      space: Space
-      vehicle: Vehicle
-      cost_type: Cost Type
-      date: Date
-      show: Show
-      edit: Update
-      destroy: Remove
-      confirmation: Are you sure?
+      title: "Bookings for Registration: "
       new: New Booking
     new:
       title: New Booking

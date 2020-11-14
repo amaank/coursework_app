@@ -7,16 +7,13 @@ Rails.application.routes.draw do
   get 'spaces', to: 'spaces#index'
 
   # Routes for cost_types.
-  # Consider nicer URLs instead of e.g. '/cost_types'
   get 'cost_types', to: 'cost_types#index'
 
   # Routes for vehicles.
-  resources :vehicles
-  # Manually define routes here if you later find out you don't need some routes
-
-  # Routes for bookings.
-  resources :bookings
-  # Manually define routes here if you later find out you don't need some routes
+  resources :vehicles do
+    # Routes for bookings.
+    resources :bookings
+  end
 
   # Make home the root of the site.
   root 'home#home'

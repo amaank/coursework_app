@@ -1,27 +1,7 @@
-%h1= t('.title')
+%h1= t('.title') + @vehicle.registration_number
 
-%table
-  %thead
-    %tr
-      %th= t('.space')
-      %th= t('.vehicle')
-      %th= t('.cost_type')
-      %th= t('.date')
-      %th
-      %th
-      %th
-
-  %tbody
-    - @bookings.each do |booking|
-      %tr
-        %td= booking.space
-        %td= booking.vehicle
-        %td= booking.cost_type
-        %td= booking.date
-        %td= link_to t('.show'), booking
-        %td= link_to t('.edit'), edit_booking_path(booking)
-        %td= link_to t('.destroy'), booking, method: :delete, data: { confirm: t('.confirmation') }
+= render 'shared/bookings_list'
 
 %br
 
-= link_to t('.new'), new_booking_path
+= link_to t('.new'), new_vehicle_booking_path(@vehicle)

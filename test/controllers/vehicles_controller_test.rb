@@ -63,10 +63,12 @@ class VehiclesControllerTest < ActionDispatch::IntegrationTest
     assert_template layout: 'application'
     assert_template partial: '_footer', count: 1
     assert_template partial: '_header', count: 1
+    assert_template partial: '_bookings_list', count: 1
 
     # Test basic view content.
     assert_select 'a', 'Update'
     assert_select 'a', 'Back'
+    assert_select 'a', 'Add Booking'
   end
 
   # Test edit action.

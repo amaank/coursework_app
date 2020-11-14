@@ -1,4 +1,4 @@
-= form_for @booking do |f|
+= form_with(model: [@vehicle, @booking], local: true) do |f|
   - if @booking.errors.any?
     #error_explanation
       %h2= "#{pluralize(@booking.errors.count, t('.error'))} #{t('.error_message')}"
@@ -11,7 +11,8 @@
     = f.text_field :space
   .field
     = f.label :vehicle
-    = f.text_field :vehicle
+    %p= @vehicle.registration_number
+    = f.hidden_field :vehicle_id, value: @vehicle.id
   .field
     = f.label :cost_type
     = f.text_field :cost_type

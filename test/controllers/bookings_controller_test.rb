@@ -3,21 +3,23 @@ require 'test_helper'
 class BookingsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @booking = bookings(:one)
+    @vehicle = vehicles(:one)
   end
 
   # Test index action.
   test "should get index" do
     # Test RESTful route.
-    get bookings_url
+    get vehicle_bookings_path(@vehicle)
     assert_response :success
 
     # Test inclusion of necessary view files.
     assert_template layout: 'application'
     assert_template partial: '_footer', count: 1
     assert_template partial: '_header', count: 1
+    assert_template partial: '_bookings_list', count: 1
 
     # Test basic view content.
-    assert_select 'h1', 'Listing Bookings'
+    assert_select 'h1', ("Bookings for Registration: " + @vehicle.registration_number)
     assert_select 'th', 'Space'
     assert_select 'th', 'Vehicle'
     assert_select 'th', 'Cost Type'
@@ -28,7 +30,7 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
   # Test new action.
   test "should get new" do
     # Test RESTful route.
-    get new_booking_url
+    get new_vehicle_booking_path(@vehicle)
     assert_response :success
 
     # Test inclusion of necessary view files.
@@ -47,16 +49,16 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
   test "should create booking" do
     assert_difference('Booking.count') do
       # Test RESTful route.
-      post bookings_url, params: { booking: { cost_type_id: @booking.cost_type_id, date: @booking.date + 1.day, space_id: @booking.space_id, vehicle_id: @booking.vehicle_id } }
+      post vehicle_bookings_path(@vehicle), params: { booking: { cost_type_id: @booking.cost_type_id, date: @booking.date + 1.day, space_id: @booking.space_id, vehicle_id: @booking.vehicle_id } }
     end
     # Test for redirect after successful 'post' request.
-    assert_redirected_to booking_url(Booking.last)
+    assert_redirected_to vehicle_bookings_path(@vehicle)
   end
 
   # Test show action.
   test "should show booking" do
     # Test RESTful route.
-    get booking_url(@booking)
+    get vehicle_booking_path(@vehicle, @booking)
     assert_response :success
 
     # Test inclusion of necessary view files.
@@ -72,7 +74,7 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
   # Test edit action.
   test "should get edit" do
     # Test RESTful route.
-    get edit_booking_url(@booking)
+    get edit_vehicle_booking_path(@vehicle, @booking)
     assert_response :success
 
     # Test inclusion of necessary view files.
@@ -90,18 +92,18 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
   # Test update action.
   test "should update booking" do
     # Test RESTful route.
-    patch booking_url(@booking), params: { booking: { cost_type_id: @booking.cost_type_id, date: @booking.date, space_id: @booking.space_id, vehicle_id: @booking.vehicle_id } }
+    patch vehicle_booking_path(@vehicle, @booking), params: { booking: { cost_type_id: @booking.cost_type_id, date: @booking.date, space_id: @booking.space_id, vehicle_id: @booking.vehicle_id } }
     # Test for redirect after successful 'patch' request.
-    assert_redirected_to booking_url(@booking)
+    assert_redirected_to vehicle_booking_path(@vehicle, @booking)
   end
 
   # Test destroy action.
   test "should destroy booking" do
     assert_difference('Booking.count', -1) do
       # Test RESTful route.
-      delete booking_url(@booking)
+      delete vehicle_booking_path(@vehicle, @booking)
     end
     # Test for redirect after successful 'delete' request.
-    assert_redirected_to bookings_url
+    assert_redirected_to vehicle_bookings_path(@vehicle)
   end
 end

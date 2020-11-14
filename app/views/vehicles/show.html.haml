@@ -11,6 +11,11 @@
   %b= t('.colour')
   = @vehicle.colour
 
+%h2= t('.bookings')
+= render 'shared/bookings_list'
+
 = link_to t('.edit'), edit_vehicle_path(@vehicle)
+\|
+= link_to t('.add'), vehicle_bookings_path(@vehicle)
 \|
 = link_to t('.back'), vehicles_path

@@ -2,6 +2,6 @@
 
 = render 'form'
 
-= link_to t('.show'), @booking
+= link_to t('.show'), [@vehicle, @booking]
 \|
-= link_to t('.back'), bookings_path
+= link_to t('.back'), vehicle_bookings_path(@vehicle)

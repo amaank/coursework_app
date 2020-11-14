@@ -1,34 +1,35 @@
 class BookingsController < ApplicationController
+  before_action :get_vehicle
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
-  # GET /bookings
-  # GET /bookings.json
+  # GET /vehicles/1/bookings
+  # GET /vehicles/1/bookings.json
   def index
-    @bookings = Booking.all
+    @bookings = @vehicle.bookings
   end
 
-  # GET /bookings/1
-  # GET /bookings/1.json
+  # GET /vehicles/1/bookings/1
+  # GET /vehicles/1/bookings/1.json
   def show
   end
 
-  # GET /bookings/new
+  # GET /vehicles/1/bookings/new
   def new
-    @booking = Booking.new
+    @booking = @vehicle.bookings.build
   end
 
-  # GET /bookings/1/edit
+  # GET /vehicles/1/bookings/1/edit
   def edit
   end
 
-  # POST /bookings
-  # POST /bookings.json
+  # POST /vehicles/1/bookings
+  # POST /vehicles/1/bookings.json
   def create
-    @booking = Booking.new(booking_params)
+    @booking = @vehicle.bookings.build(booking_params)
 
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to @booking, notice: I18n.t('bookings.create.success') }
+        format.html { redirect_to vehicle_bookings_path(@vehicle), notice: I18n.t('bookings.create.success') }
         format.json { render :show, status: :created, location: @booking }
       else
         format.html { render :new }
@@ -37,12 +38,12 @@ class BookingsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /bookings/1
-  # PATCH/PUT /bookings/1.json
+  # PATCH/PUT /vehicles/1/bookings/1
+  # PATCH/PUT /vehicles/1/bookings/1.json
   def update
     respond_to do |format|
       if @booking.update(booking_params)
-        format.html { redirect_to @booking, notice: I18n.t('bookings.update.success') }
+        format.html { redirect_to vehicle_booking_path(@vehicle), notice: I18n.t('bookings.update.success') }
         format.json { render :show, status: :ok, location: @booking }
       else
         format.html { render :edit }
@@ -51,20 +52,25 @@ class BookingsController < ApplicationController
     end
   end
 
-  # DELETE /bookings/1
-  # DELETE /bookings/1.json
+  # DELETE /vehicles/1/bookings/1
+  # DELETE /vehicles/1/bookings/1.json
   def destroy
     @booking.destroy
     respond_to do |format|
-      format.html { redirect_to bookings_url, notice: I18n.t('bookings.destroy.success') }
+      format.html { redirect_to vehicle_bookings_path(@vehicle), notice: I18n.t('bookings.destroy.success') }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def get_vehicle
+      @vehicle = Vehicle.find(params[:vehicle_id])
+    end
+
+    # Use callbacks to share common setup or constraints between actions.
     def set_booking
-      @booking = Booking.find(params[:id])
+      @booking = @vehicle.bookings.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

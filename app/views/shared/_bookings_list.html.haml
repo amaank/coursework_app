@@ -1,0 +1,21 @@
+%table
+  %thead
+    %tr
+      %th= t('.space')
+      %th= t('.vehicle')
+      %th= t('.cost_type')
+      %th= t('.date')
+      %th
+      %th
+      %th
+
+  %tbody
+    - @vehicle.bookings.each do |booking|
+      %tr
+        %td= booking.space
+        %td= booking.vehicle.registration_number
+        %td= booking.cost_type
+        %td= booking.date
+        %td= link_to t('.show'), [@vehicle]
+        %td= link_to t('.edit'), edit_vehicle_booking_path(@vehicle, booking)
+        %td= link_to t('.destroy'), [@vehicle, booking], method: :delete, data: { confirm: t('.confirmation') }

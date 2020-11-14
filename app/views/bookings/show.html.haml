@@ -3,7 +3,7 @@
   = @booking.space
 %p
   %b= t('.vehicle')
-  = @booking.vehicle
+  = @booking.vehicle.registration_number
 %p
   %b= t('.cost_type')
   = @booking.cost_type
@@ -11,6 +11,6 @@
   %b= t('.date')
   = @booking.date
 
-= link_to t('.edit'), edit_booking_path(@booking)
+= link_to t('.edit'), edit_vehicle_booking_path(@vehicle, @booking)
 \|
-= link_to t('.back'), bookings_path
+= link_to t('.back'), vehicle_bookings_path(@vehicle)
