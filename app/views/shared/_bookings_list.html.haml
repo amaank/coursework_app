@@ -11,11 +11,11 @@
 
   %tbody
     - @vehicle.bookings.each do |booking|
-      %tr
+      %tr{id: "booking_#{booking.id}"}
         %td= booking.space
         %td= booking.vehicle.registration_number
         %td= booking.cost_type
         %td= booking.date
         %td= link_to t('.show'), [@vehicle]
         %td= link_to t('.edit'), edit_vehicle_booking_path(@vehicle, booking)
-        %td= link_to t('.destroy'), [@vehicle, booking], method: :delete, data: { confirm: t('.confirmation') }
+        %td= link_to t('.destroy'), [@vehicle, booking], method: :delete, data: { confirm: t('.confirmation') }, :remote => true

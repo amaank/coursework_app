@@ -57,6 +57,7 @@ class VehiclesController < ApplicationController
     @vehicle.destroy
     respond_to do |format|
       format.html { redirect_to vehicles_url, notice: I18n.t('vehicles.destroy.success') }
+      # format.js { flash[:notice] = I18n.t('vehicles.destroy.success') }
       format.json { head :no_content }
     end
   end

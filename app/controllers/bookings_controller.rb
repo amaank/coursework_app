@@ -58,6 +58,7 @@ class BookingsController < ApplicationController
     @booking.destroy
     respond_to do |format|
       format.html { redirect_to vehicle_bookings_path(@vehicle), notice: I18n.t('bookings.destroy.success') }
+      # format.js { flash[:notice] = I18n.t('bookings.destroy.success') }
       format.json { head :no_content }
     end
   end
