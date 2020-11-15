@@ -1,9 +1,12 @@
 %table
   %thead
     %tr
-      %th= t('.space')
+      %th= t('spaces.index.floor')
+      %th= t('spaces.index.row')
+      %th= t('spaces.index.column')
       %th= t('.vehicle')
-      %th= t('.cost_type')
+      %th= t('.type')
+      %th= t('.price')
       %th= t('.date')
       %th
       %th
@@ -12,9 +15,12 @@
   %tbody
     - @vehicle.bookings.each do |booking|
       %tr{id: "booking_#{booking.id}"}
-        %td= booking.space
+        %td= booking.space.floor
+        %td= booking.space.row
+        %td= booking.space.column
         %td= booking.vehicle.registration_number
-        %td= booking.cost_type
+        %td= booking.cost_type.name
+        %td= number_to_currency(booking.cost_type.price, unit: "£")
         %td= booking.date
         %td= link_to t('.show'), [@vehicle]
         %td= link_to t('.edit'), edit_vehicle_booking_path(@vehicle, booking)

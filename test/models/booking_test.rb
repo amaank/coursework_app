@@ -100,6 +100,22 @@ class BookingTest < ActiveSupport::TestCase
     assert new_booking.errors.key?(:vehicle_id)
   end
 
+  test "invalid if date in past" do
+    # Set date attribute value to be in the past.
+    @booking.date = Date.yesterday
+    refute @booking.valid?
+    # Check that object is invalid due to invalid date attribute.
+    assert @booking.errors.key?(:date)
+  end
+
+  test "invalid if date more than 7 days from current date" do
+    # Set date attribute value to be more than 7 days from current date.
+    @booking.date = Date.today + 8.days
+    refute @booking.valid?
+    # Check that object is invalid due to invalid date attribute.
+    assert @booking.errors.key?(:date)
+  end
+
   test "should belong to one space" do
     # Test belongs_to side of association (with Space) using .space method provided by ORM.
     assert @booking.space == @space

@@ -3,9 +3,9 @@ require 'test_helper'
 class SpaceTest < ActiveSupport::TestCase
   def setup
     # Produce a value that will give a unique combination of floor, row and column.
-    unused = Space.all.count + 1
+    @unused = Space.all.count + 1
     # Create a valid 'space' object.
-    @space = Space.new(floor: unused, row: unused, column: unused)
+    @space = Space.new(floor: @unused, row: @unused, column: @unused)
   end
 
   test "valid space" do
@@ -93,5 +93,9 @@ class SpaceTest < ActiveSupport::TestCase
       # And also save to the database.
       booking_two.save
     end
+  end
+
+  test "#display_space" do
+    assert_equal("Floor: #{@unused}, Row: #{@unused}, Column: #{@unused}", @space.display_space)
   end
 end

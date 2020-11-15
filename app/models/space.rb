@@ -9,4 +9,9 @@ class Space < ApplicationRecord
   validates :floor, uniqueness: { scope: [:row, :column] }
   # Prevent negative or zero values for floor, row and column.
   validates :floor, :row, :column, numericality: { greater_than: 0 }
+
+  # Return string specifiying useful attribute values
+  def display_space
+   "#{I18n.t('spaces.index.floor')}: #{floor}, #{I18n.t('spaces.index.row')}: #{row}, #{I18n.t('spaces.index.column')}: #{column}"
+  end
 end

@@ -40,9 +40,9 @@ en:
       contact: Contact
       vehicles: Vehicles
     bookings_list:
-      space: Space
       vehicle: Vehicle
-      cost_type: Cost Type
+      type: Type
+      price: Price
       date: Date
       show: Show Vehicle
       edit: Update Booking
@@ -90,7 +90,7 @@ en:
   vehicles:
     form:
       error: error
-      error_message: "prohibited this vehicle from being saved:"
+      error_message: "prevented this vehicle from being registered:"
       submit: Save
     edit:
       title: Editing Vehicle
@@ -133,8 +133,11 @@ en:
   bookings:
     form:
       error: error
-      error_message: "prohibited this vehicle from being saved:"
+      error_message: "prevented this booking from being made:"
       submit: Save
+      floor: Floor
+      row: Row
+      column: Column
     edit:
       title: Editing Booking
       show: Show
@@ -160,4 +163,4 @@ en:
       success: Booking was successfully removed.
     validation:
       invalid_space: cannot be booked twice for one day.
-      invalid_vehicle: A vehicle cannot be booked twice for one day.
+      invalid_vehicle: cannot be booked twice for one day.

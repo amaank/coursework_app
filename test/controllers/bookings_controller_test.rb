@@ -20,9 +20,12 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
 
     # Test basic view content.
     assert_select 'h1', ("Bookings for Registration: " + @vehicle.registration_number)
-    assert_select 'th', 'Space'
+    assert_select 'th', 'Floor'
+    assert_select 'th', 'Row'
+    assert_select 'th', 'Column'
     assert_select 'th', 'Vehicle'
-    assert_select 'th', 'Cost Type'
+    assert_select 'th', 'Type'
+    assert_select 'th', 'Price'
     assert_select 'th', 'Date'
     assert_select 'a', 'New Booking'
   end
@@ -49,7 +52,7 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
   test "should create booking" do
     assert_difference('Booking.count') do
       # Test RESTful route.
-      post vehicle_bookings_path(@vehicle), params: { booking: { cost_type_id: @booking.cost_type_id, date: @booking.date + 1.day, space_id: @booking.space_id, vehicle_id: @booking.vehicle_id } }
+      post vehicle_bookings_path(@vehicle), params: { booking: { cost_type_id: @booking.cost_type_id, date: Date.today, space_id: @booking.space_id, vehicle_id: @booking.vehicle_id } }
     end
     # Test for redirect after successful 'post' request.
     assert_redirected_to vehicle_bookings_path(@vehicle)
@@ -92,7 +95,7 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
   # Test update action.
   test "should update booking" do
     # Test RESTful route.
-    patch vehicle_booking_path(@vehicle, @booking), params: { booking: { cost_type_id: @booking.cost_type_id, date: @booking.date, space_id: @booking.space_id, vehicle_id: @booking.vehicle_id } }
+    patch vehicle_booking_path(@vehicle, @booking), params: { booking: { cost_type_id: @booking.cost_type_id, date: Date.today, space_id: @booking.space_id, vehicle_id: @booking.vehicle_id } }
     # Test for redirect after successful 'patch' request.
     assert_redirected_to vehicle_booking_path(@vehicle, @booking)
   end
