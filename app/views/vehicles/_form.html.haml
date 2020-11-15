@@ -1,4 +1,4 @@
-= form_for @vehicle do |f|
+= form_for @vehicle, :html => { :id => "new_vehicle_form" } do |f|
   - if @vehicle.errors.any?
     #error_explanation
       %h2= "#{pluralize(@vehicle.errors.count, t('.error'))} #{t('.error_message')}"

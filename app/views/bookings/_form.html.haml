@@ -1,4 +1,4 @@
-= form_with(model: [@vehicle, @booking], local: true, html: { id: "booking_form" }) do |f|
+= form_with(model: [@vehicle, @booking], local: true) do |f|
   - if @booking.errors.any?
     #error_explanation
       %h2= "#{pluralize(@booking.errors.count, t('.error'))} #{t('.error_message')}"
