@@ -4,7 +4,7 @@ class VehiclesController < ApplicationController
   # GET /vehicles
   # GET /vehicles.json
   def index
-    @vehicles = Vehicle.all
+    @vehicles = Vehicle.all.sort {|vehicle1, vehicle2| vehicle1.registration_number <=> vehicle2.registration_number}
   end
 
   # GET /vehicles/1
