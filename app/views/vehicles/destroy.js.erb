@@ -1,1 +1,2 @@
-$('#vehicle_<%= @vehicle.id %>').html("<%= flash[:notice] %>");
+$('#vehicle_<%= @vehicle.id %>').hide();
+$('.notice').html("<%= flash[:notice] %>").addClass("alert alert-success");

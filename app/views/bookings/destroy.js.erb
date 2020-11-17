@@ -1,1 +1,2 @@
-$('#booking_<%= @booking.id %>').html("<%= flash[:notice] %>");
+$('#booking_<%= @booking.id %>').hide();
+$('.notice').html("<%= flash[:notice] %>").addClass("alert alert-success");
