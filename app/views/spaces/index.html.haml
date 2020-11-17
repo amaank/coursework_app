@@ -1,6 +1,6 @@
 %h1= t('.title')
 
-%table
+-#%table
   %thead
     %tr
       %th= t('.floor')
@@ -16,5 +16,15 @@
         %td= space.floor
         %td= space.row
         %td= space.column
+
+/BASIC CONCEPT
+- @spaces.distinct.pluck(:floor).each do |floor|
+  %p= t('.floor') + " #{floor}"
+  %table.table
+    %tbody
+      - @spaces.with_floor(floor).distinct.pluck(:row).each do |row|
+        %tr
+          - @spaces.with_floor(floor).with_row(row).each do |space|
+            %td= "#{space.display_space}"
 
 %br

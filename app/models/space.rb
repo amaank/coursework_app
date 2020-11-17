@@ -1,4 +1,9 @@
 class Space < ApplicationRecord
+  # Filter all objects by floor
+  scope :with_floor, -> (floor_num) { where(floor: floor_num) }
+  # Filter all objects by row
+  scope :with_row, -> (row_num) { where(row: row_num) }
+
   # There may be 0 or more bookings for a particular parking space/slot.
   # space not intended to be destroyable, thus no action taken on dependent bookings if destroyed.
   has_many :bookings

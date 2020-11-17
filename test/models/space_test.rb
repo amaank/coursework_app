@@ -98,4 +98,24 @@ class SpaceTest < ActiveSupport::TestCase
   test "#display_space" do
     assert_equal("Floor: #{@unused}, Row: #{@unused}, Column: #{@unused}", @space.display_space)
   end
+
+  test "#with_floor" do
+    # Use the with_floor scope to create a collection of spaces with value 1 for floor attribute
+    floor_one_spaces = Space.with_floor(1)
+    # Create a list of all possible floors found in the above collection
+    floors = floor_one_spaces.distinct.pluck(:floor)
+    # Check that the only value for floor found is 1
+    assert floors.length == 1
+    assert floors[0] == 1
+  end
+
+  test "#with_row" do
+    # Use the with_row scope to create a collection of spaces with value 1 for row attribute
+    row_one_spaces = Space.with_row(1)
+    # Create a list of all possible rows found in the above collection
+    rows = row_one_spaces.distinct.pluck(:row)
+    # Check that the only value for row found is 1
+    assert rows.length == 1
+    assert rows[0] == 1
+  end
 end
