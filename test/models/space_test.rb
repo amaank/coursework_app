@@ -118,4 +118,19 @@ class SpaceTest < ActiveSupport::TestCase
     assert rows.length == 1
     assert rows[0] == 1
   end
+
+  test "#is_booked" do
+    # Save object to database.
+    @space.save
+    # Create new vehicle object.
+    vehicle = vehicles(:one)
+    # Save this to the database.
+    vehicle.save
+    # Create new booking object which references our space object.
+    booking_one = Booking.new(space_id: @space.id, vehicle_id: vehicle.id, cost_type_id: CostType.first.id, date: Date.today)
+    # Save this to the database.
+    booking_one.save
+    # Test that the space now counts as booked for the specified date.
+    assert @space.is_booked(Date.today) == true
+  end
 end

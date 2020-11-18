@@ -130,4 +130,11 @@ class BookingTest < ActiveSupport::TestCase
     # Test belongs_to side of association (with CostType) using .cost_type method provided by ORM.
     assert @booking.cost_type == @cost_type
   end
+
+  test "#with_date" do
+    # Test that the number of bookings retrieved for a particular date increases by 1, when a new booking is made for that date.
+    assert_difference('Booking.with_date(Date.today).length', 1) do
+      @booking.save
+    end
+  end
 end

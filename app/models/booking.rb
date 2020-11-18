@@ -1,4 +1,7 @@
 class Booking < ApplicationRecord
+  # Filter all objects by date
+  scope :with_date, -> (date) { where(date: date) }
+
   # One booking will belong to/be for one particular parking space.
   belongs_to :space
   # One booking will belong to/be for one particular vehicle.

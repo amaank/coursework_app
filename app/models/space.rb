@@ -19,4 +19,9 @@ class Space < ApplicationRecord
   def display_space
    "#{I18n.t('spaces.index.floor')}: #{floor}, #{I18n.t('spaces.index.row')}: #{row}, #{I18n.t('spaces.index.column')}: #{column}"
   end
+
+  # Check if a space is booked for a particular date
+  def is_booked(date)
+    self.bookings.with_date(date).length == 1
+  end
 end
