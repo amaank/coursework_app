@@ -81,10 +81,15 @@ en:
 
   spaces:
     index:
-      title: Listing Spaces
+      title: "Listing Spaces for: "
       floor: Floor
       row: Row
       column: Column
+      submit: Search
+      invalid_date:
+        default: "Invalid date chosen - showing spaces for today"
+        too_small: "Date cannot be in the past - showing spaces for today"
+        too_large: "Date cannot be more than 7 days from today - showing spaces for today"
 
   vehicles:
     form:

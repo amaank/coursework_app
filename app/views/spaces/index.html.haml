@@ -1,30 +1,17 @@
-%h1= t('.title')
+%h1= t('.title') + @chosen_date.strftime('%d/%m/%Y')
 
--#%table
-  %thead
-    %tr
-      %th= t('.floor')
-      %th= t('.row')
-      %th= t('.column')
-      %th
-      %th
-      %th
+= form_tag spaces_path, method: "get", :html => { :id => "spaces_search_form" } do
+  = date_field_tag :date, params[:date]
+  = submit_tag t('.submit'), name: nil
 
-  %tbody
-    - @spaces.each do |space|
-      %tr
-        %td= space.floor
-        %td= space.row
-        %td= space.column
-
-/BASIC CONCEPT
 - @spaces.distinct.pluck(:floor).each do |floor|
-  %p= t('.floor') + " #{floor}"
-  %table.table
+  %p= t('spaces.index.floor') + " #{floor}"
+  %table.table.table-bordered.table-condensed
     %tbody
       - @spaces.with_floor(floor).distinct.pluck(:row).each do |row|
         %tr
           - @spaces.with_floor(floor).with_row(row).each do |space|
-            %td= "#{space.display_space}"
-
-%br
+            - if space.is_booked(@chosen_date)
+              %td.danger= "#{space.display_space}"
+            - else
+              %td.success= "#{space.display_space}"
