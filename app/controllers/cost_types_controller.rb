@@ -1,4 +1,5 @@
 class CostTypesController < ApplicationController
+  before_action :authenticate_user!
 
   # GET /cost_types
   # GET /cost_types.json

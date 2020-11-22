@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   before_action :get_vehicle
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /vehicles/1/bookings
   # GET /vehicles/1/bookings.json
