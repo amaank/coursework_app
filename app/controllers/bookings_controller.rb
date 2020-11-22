@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   before_action :get_vehicle
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :check_booking_user
 
   # GET /vehicles/1/bookings
   # GET /vehicles/1/bookings.json
@@ -78,5 +79,10 @@ class BookingsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def booking_params
       params.require(:booking).permit(:space_id, :vehicle_id, :cost_type_id, :date)
+    end
+
+    # Prevent action if it relates to a different user's booking.
+    def check_booking_user
+      redirect_to root_path unless @vehicle.user == current_user
     end
 end

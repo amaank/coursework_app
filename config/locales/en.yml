@@ -48,7 +48,7 @@ en:
       type: Type
       price: Price
       date: Date
-      show: Show Vehicle
+      show: Show Booking
       edit: Update Booking
       destroy: Remove Booking
       confirmation: Are you sure?

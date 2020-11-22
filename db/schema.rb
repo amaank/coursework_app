@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_22_144233) do
+ActiveRecord::Schema.define(version: 2020_11_22_153129) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer "space_id", null: false
@@ -63,7 +63,9 @@ ActiveRecord::Schema.define(version: 2020_11_22_144233) do
     t.string "colour", default: "unspecified"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
     t.index ["registration_number"], name: "index_vehicles_on_registration_number", unique: true
+    t.index ["user_id"], name: "index_vehicles_on_user_id"
   end
 
 end

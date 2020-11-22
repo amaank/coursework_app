@@ -1,15 +1,15 @@
 %p
   %b= t('.space')
-  = @booking.space
+  = @booking.space.display_space
 %p
   %b= t('.vehicle')
   = @booking.vehicle.registration_number
 %p
   %b= t('.cost_type')
-  = @booking.cost_type
+  = @booking.cost_type.name
 %p
   %b= t('.date')
-  = @booking.date
+  = @booking.date.strftime('%d/%m/%Y')
 
 = link_to t('.edit'), edit_vehicle_booking_path(@vehicle, @booking)
 \|

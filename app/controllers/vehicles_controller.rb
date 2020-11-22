@@ -1,11 +1,12 @@
 class VehiclesController < ApplicationController
   before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :check_vehicle_user, only: [:show, :edit, :update, :destroy]
 
   # GET /vehicles
   # GET /vehicles.json
   def index
-    @vehicles = Vehicle.all.sort {|vehicle1, vehicle2| vehicle1.registration_number <=> vehicle2.registration_number}
+    @vehicles = Vehicle.user_vehicles(current_user).sort {|vehicle1, vehicle2| vehicle1.registration_number <=> vehicle2.registration_number}
   end
 
   # GET /vehicles/1
@@ -26,6 +27,7 @@ class VehiclesController < ApplicationController
   # POST /vehicles.json
   def create
     @vehicle = Vehicle.new(vehicle_params)
+    @vehicle.user = current_user
 
     respond_to do |format|
       if @vehicle.save
@@ -72,5 +74,10 @@ class VehiclesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def vehicle_params
       params.require(:vehicle).permit(:registration_number, :make, :model, :colour)
+    end
+
+    # Prevent action if it relates to a different user's vehicle.
+    def check_vehicle_user
+      redirect_to root_path unless @vehicle.user == current_user
     end
 end
