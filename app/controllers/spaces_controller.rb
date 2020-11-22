@@ -32,10 +32,10 @@ class SpacesController < ApplicationController
     def check_date_range(date)
       if date < Date.today
         set_default_date()
-        flash.now[:alert] = I18n.t('spaces.index.invalid_date.too_small')
+        flash.now[:alert] = I18n.t('spaces.index.invalid_date.too_early')
       elsif date > (Date.today + 7.days)
         set_default_date()
-        flash.now[:alert] = I18n.t('spaces.index.invalid_date.too_large')
+        flash.now[:alert] = I18n.t('spaces.index.invalid_date.too_late')
       else
         # If the chosen date is valid, set it as the current displayed date.
         @chosen_date = date

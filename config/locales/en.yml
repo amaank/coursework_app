@@ -88,8 +88,8 @@ en:
       submit: Search
       invalid_date:
         default: "Invalid date chosen - showing spaces for today"
-        too_small: "Date cannot be in the past - showing spaces for today"
-        too_large: "Date cannot be more than 7 days from today - showing spaces for today"
+        too_early: "Date cannot be in the past - showing spaces for today"
+        too_late: "Date cannot be more than a week from today - showing spaces for today"
 
   vehicles:
     form:
@@ -168,3 +168,6 @@ en:
     validation:
       invalid_space: cannot be booked twice for one day.
       invalid_vehicle: cannot be booked twice for one day.
+      invalid_date:
+          too_early: " can't be in the past"
+          too_late: " can't be more than a week from today"

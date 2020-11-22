@@ -23,11 +23,11 @@ class Booking < ApplicationRecord
   def date_limit
     # To prevent bookings being made for dates in the past.
     if date.present? && date < Date.today
-      errors.add(:date, "can't be in the past")
+      errors.add(:date, I18n.t('bookings.validation.invalid_date.too_early'))
     end
     # To prevent bookings being made more than 7 days in advance.
     if date.present? && date > (Date.today + 7.days)
-      errors.add(:date, "can't be more than a week from today")
+      errors.add(:date, I18n.t('bookings.validation.invalid_date.too_late'))
     end
   end
 end
