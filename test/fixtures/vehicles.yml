@@ -1,12 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  user: one
   registration_number: AB12 CDE
   make: Ford
   model: Focus
   colour: Blue
 
 two:
+  user: two
   registration_number: FG34 HIJ
   make: Subaru
   model: Impreza

@@ -1,6 +1,12 @@
 require 'test_helper'
 
 class SpacesControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
+  setup do
+    @user = users(:one)
+    sign_in @user
+  end
 
   # Test index action.
   test "should get index" do

@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class HomeControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   # Test home action.
   test "should get home" do
     # Test RESTful route.

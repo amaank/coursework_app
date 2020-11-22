@@ -1,8 +1,12 @@
 require 'test_helper'
 
 class VehiclesControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
     @vehicle = vehicles(:one)
+    @user = users(:one)
+    sign_in @user
   end
 
   # Test index action.

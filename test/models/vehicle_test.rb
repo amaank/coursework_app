@@ -5,6 +5,7 @@ class VehicleTest < ActiveSupport::TestCase
     # Create a valid 'Vehicle' object.
     @vehicle = vehicles(:one)
     @vehicle.registration_number = "XX00 XXX"
+    @vehicle.user = users(:one)
   end
 
   test "valid vehicle" do
