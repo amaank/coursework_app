@@ -101,4 +101,13 @@ class VehicleTest < ActiveSupport::TestCase
     # This record should have been removed, so check for appropriate exception being raised.
     assert_raise(ActiveRecord::RecordNotFound) { booking.reload }
   end
+
+  test "#user_vehicles" do
+    assert_difference('Vehicle.user_vehicles(users(:one)).length', 1) do
+      new_vehicle = vehicles(:two)
+      new_vehicle.user = users(:one)
+      new_vehicle.save
+    end
+  end
+
 end
