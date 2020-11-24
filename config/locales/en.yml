@@ -39,6 +39,8 @@ en:
       home: Home
       contact: Contact
       vehicles: My Vehicles
+      spaces: Spaces
+      pricing: Pricing
       profile: My Profile
       logout: Logout
       login: Login

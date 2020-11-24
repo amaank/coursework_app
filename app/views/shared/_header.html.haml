@@ -1,26 +1,41 @@
-%nav.navbar.navbar-inverse
+%nav.navbar.navbar-default
   .container-fluid
     .navbar-header
       %a.navbar-brand{:href => root_path}= t('.title')
     %ul.nav.navbar-nav
-      - if user_signed_in?
-        %li
-          %a= "#{current_user.email}"
-        %li
-          = link_to t('profile'), edit_user_registration_path
-        %li
-          = link_to t('logout'), destroy_user_session_path, method: 'delete'
-      - else
-        %li
-          = link_to t('login'), new_user_session_path
-        %li
-          = link_to t('sign_up'), new_user_registration_path
       %li
         %a{:href => root_path}= t('.home')
       %li
         %a{:href => contact_path}= t('.contact')
       %li
         %a{:href => vehicles_path}= t('.vehicles')
+      %li
+        %a{:href => cost_types_path}= t('.pricing')
+      %li
+        %a{:href => spaces_path}= t('.spaces')
+    %ul.nav.navbar-nav.navbar-right
+      - if user_signed_in?
+        %li
+          %a
+            %span.glyphicon.glyphicon-envelope
+            = "#{current_user.email}"
+        %li
+          %a{:href => edit_user_registration_path}
+            %span.glyphicon.glyphicon-user
+            = t('.profile')
+        %li
+          = link_to destroy_user_session_path, method: 'delete' do
+            %span.glyphicon.glyphicon-log-out
+            = t('.logout')
+      - else
+        %li
+          %a{:href => new_user_registration_path}
+            %span.glyphicon.glyphicon-user
+            = t('.sign_up')
+        %li
+          %a{:href => new_user_session_path}
+            %span.glyphicon.glyphicon-log-in
+            = t('.login')
 
 #flash_messages
   - flash.each do |key, value|
