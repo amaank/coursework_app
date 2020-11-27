@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'spaces', to: 'spaces#index'
 
   # Routes for cost_types.
-  get 'cost_types', to: 'cost_types#index'
+  get 'pricing', to: 'cost_types#index'
 
   # Routes for vehicles.
   resources :vehicles do

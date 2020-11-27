@@ -11,7 +11,7 @@ class CostTypesControllerTest < ActionDispatch::IntegrationTest
   # Test index action.
   test "should get index" do
     # Test RESTful route.
-    get cost_types_url
+    get pricing_url
     assert_response :success
 
     # Test inclusion of necessary view files.
