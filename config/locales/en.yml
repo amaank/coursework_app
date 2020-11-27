@@ -91,7 +91,7 @@ en:
       floor: Floor
       row: Row
       column: Column
-      choose_date: "Choose a date for your booking:"
+      date: "Pick a date:"
       submit: Search
       invalid_date:
         default: "Invalid date chosen - showing spaces for today."

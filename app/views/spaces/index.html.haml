@@ -1,9 +1,10 @@
 %h1= t('.title') + @chosen_date.strftime('%d/%m/%Y')
 
-= form_tag spaces_path, method: "get", :html => { :id => "spaces_search_form" } do
-  = label_tag(:date, t('.choose_date'))
-  = date_field_tag :date, params[:date]
-  = submit_tag t('.submit'), name: nil
+= form_tag spaces_path, method: "get", :html => { :id => "spaces_search_form" }, class: "form-inline" do
+  .form-group
+    = label_tag(:date, t('.date'))
+    = date_field_tag :date, params[:date]
+  = submit_tag t('.submit'), name: nil, class: "btn btn-default"
 
 - @spaces.distinct.pluck(:floor).each do |floor|
   %h3= t('spaces.index.floor') + " #{floor}"
