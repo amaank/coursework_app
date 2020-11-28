@@ -88,7 +88,7 @@ class VehiclesControllerTest < ActionDispatch::IntegrationTest
     assert_template partial: '_form', count: 1
 
     # Test basic view content.
-    assert_select 'h1', 'Update Vehicle'
+    assert_select 'h1', "Update \"#{@vehicle.registration_number}\""
     assert_select 'a', 'Show'
     assert_select 'a', 'Back'
   end

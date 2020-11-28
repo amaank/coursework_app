@@ -109,8 +109,8 @@ en:
       error_message: "prevented this vehicle from being registered:"
       submit: Save
     edit:
-      title: Update Vehicle
-      description: Configure the details of a vehicle that you have registered with us
+      title: Update
+      description: Configure the details that you have provided to us for this vehicle
       show: Show
       back: Back
     index:
@@ -130,8 +130,11 @@ en:
       description: Register a new vehicle with us
       back: Back
     show:
-      vehicle_description: Showing the details that you've provided for this vehicle
-      bookings_description: Showing the bookings that you've made for this vehicle
+      title: Showing
+      bookings: Bookings
+      details: Details
+      details_description: The details that you've provided for this vehicle
+      bookings_description: The bookings that you've made for this vehicle
       reg_number: "Registration Number:"
       make: "Make:"
       model: "Model:"
@@ -139,7 +142,6 @@ en:
       edit: Update
       back: Back
       confirmation: Are you sure?
-      bookings: "Bookings"
       add: Add Booking
     validation:
       invalid_reg_number: "must be in line with the current format (two letters and two numbers, followed by a space and then three letters), for example: AB12 CDE. If you have an older or private registration, please get in touch via the contact page!"
