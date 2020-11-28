@@ -1,27 +1,33 @@
-%h1= t('.title')
-
-%table
-  %thead
-    %tr
-      %th= t('.reg_number')
-      %th= t('.make')
-      %th= t('.model')
-      %th= t('.colour')
-      %th
-      %th
-      %th
-
-  %tbody
-    - @vehicles.each do |vehicle|
-      %tr{id: "vehicle_#{vehicle.id}"}
-        %td= vehicle.registration_number
-        %td= vehicle.make
-        %td= vehicle.model
-        %td= vehicle.colour
-        %td= link_to t('.show'), vehicle
-        %td= link_to t('.edit'), edit_vehicle_path(vehicle)
-        %td= link_to t('.destroy'), vehicle, method: :delete, data: { confirm: t('.confirmation') }, :remote => true
+.jumbotron.text-center
+  %h1= t('.title')
+  %p= t('.description')
 
 %br
 
-= link_to t('.new'), new_vehicle_path
+.container
+  %table.table.table-striped
+    %thead
+      %tr
+        %th= t('.reg_number')
+        %th= t('.make')
+        %th= t('.model')
+        %th= t('.colour')
+        %th
+        %th
+        %th
+
+    %tbody
+      - @vehicles.each do |vehicle|
+        %tr{id: "vehicle_#{vehicle.id}"}
+          %td= vehicle.registration_number
+          %td= vehicle.make
+          %td= vehicle.model
+          %td= vehicle.colour
+          %td= link_to t('.show'), vehicle
+          %td= link_to t('.edit'), edit_vehicle_path(vehicle)
+          %td= link_to t('.destroy'), vehicle, method: :delete, data: { confirm: t('.confirmation') }, :remote => true
+
+  %br
+  = link_to t('.new'), new_vehicle_path
+
+%br

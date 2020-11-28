@@ -57,12 +57,14 @@ en:
 
   home:
     home:
-      title: Home Page
-      welcome: Welcome to the home page!
+      title: Home
+      description: Welcome to ParkMyCar!
 
     contact:
       title: Contact Us
-      contact_us: Complete the following form to get in touch with us.
+      description: We'd love to hear your feedback!
+      form_heading: Contact Form
+      form_description: Fill in the following form to let us know what you need!
 
       name: "Name:"
       enter_name: Enter your name
@@ -80,14 +82,17 @@ en:
 
   cost_types:
     index:
-      title: Listing Cost Types
-      name: Name
-      price: Price
-      description: Description
+      title: Pricing
+      description: An overview of the types of parking service that we provide
+      tier_name: Name
+      tier_price: Price
+      tier_description: Description
 
   spaces:
     index:
-      title: "Listing Spaces for: "
+      title: Spaces
+      description: An overview of the spaces that are available for a given date
+      listed_date: "Listing Spaces for: "
       floor: Floor
       row: Row
       column: Column
@@ -104,24 +109,29 @@ en:
       error_message: "prevented this vehicle from being registered:"
       submit: Save
     edit:
-      title: Editing Vehicle
+      title: Update Vehicle
+      description: Configure the details of a vehicle that you have registered with us
       show: Show
       back: Back
     index:
-      title: Listing Vehicles
+      title: My Vehicles
+      description: An overview of the vehicles that you have registered with us
       reg_number: Registration Number
       make: Make
       model: Model
       colour: Colour
       show: Show
       edit: Update
-      destroy: Unregister
+      destroy: Un-register
       confirmation: Are you sure?
       new: New Vehicle
     new:
       title: New Vehicle
+      description: Register a new vehicle with us
       back: Back
     show:
+      vehicle_description: Showing the details that you've provided for this vehicle
+      bookings_description: Showing the bookings that you've made for this vehicle
       reg_number: "Registration Number:"
       make: "Make:"
       model: "Model:"
@@ -129,7 +139,7 @@ en:
       edit: Update
       back: Back
       confirmation: Are you sure?
-      bookings: "Bookings:"
+      bookings: "Bookings"
       add: Add Booking
     validation:
       invalid_reg_number: "must be in line with the current format (two letters and two numbers, followed by a space and then three letters), for example: AB12 CDE. If you have an older or private registration, please get in touch via the contact page!"
@@ -139,7 +149,7 @@ en:
     update:
       success: Vehicle was successfully updated.
     destroy:
-      success: Vehicle was successfully unregistered.
+      success: Vehicle was successfully un-registered.
 
   bookings:
     form:
@@ -150,11 +160,11 @@ en:
       row: Row
       column: Column
     edit:
-      title: Editing Booking
+      title: Update Booking
       show: Show
       back: Back
     index:
-      title: "Bookings for Registration: "
+      title: "Bookings for "
       new: New Booking
     new:
       title: New Booking

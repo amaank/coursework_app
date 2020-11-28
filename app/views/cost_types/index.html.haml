@@ -1,20 +1,22 @@
-%h1= t('.title')
-
-%table
-  %thead
-    %tr
-      %th= t('.name')
-      %th= t('.price')
-      %th= t('.description')
-      %th
-      %th
-      %th
-
-  %tbody
-    - @cost_types.each do |cost_type|
-      %tr
-        %td= cost_type.name
-        %td= number_to_currency(cost_type.price, unit: "£")
-        %td= cost_type.description
+.jumbotron.text-center
+  %h1= t('.title')
+  %p= t('.description')
 
 %br
+
+.container
+  %table.table.table-striped
+    %thead
+      %tr
+        %th= t('.tier_name')
+        %th= t('.tier_price')
+        %th= t('.tier_description')
+
+    %tbody
+      - @cost_types.each do |cost_type|
+        %tr
+          %td= cost_type.name
+          %td= number_to_currency(cost_type.price, unit: "£")
+          %td= cost_type.description
+
+  %br

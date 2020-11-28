@@ -6,17 +6,17 @@
         - @vehicle.errors.full_messages.each do |message|
           %li= message
 
-  .field
+  .field.form-group
     = f.label :registration_number
-    = f.text_field :registration_number
-  .field
+    = f.text_field :registration_number, class: "form-control"
+  .field.form-group
     = f.label :make
-    = f.text_field :make
-  .field
+    = f.text_field :make, class: "form-control"
+  .field.form-group
     = f.label :model
-    = f.text_field :model
-  .field
+    = f.text_field :model, class: "form-control"
+  .field.form-group
     = f.label :colour
-    = f.text_field :colour
+    = f.text_field :colour, class: "form-control"
   .actions
-    = f.submit t('.submit')
+    = f.submit t('.submit'), class: "btn btn-default"

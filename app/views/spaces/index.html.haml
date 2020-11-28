@@ -1,19 +1,24 @@
-%h1= t('.title') + @chosen_date.strftime('%d/%m/%Y')
+.jumbotron.text-center
+  %h1= t('.title')
+  %p= t('.description')
 
-= form_tag spaces_path, method: "get", :html => { :id => "spaces_search_form" }, class: "form-inline" do
-  .form-group
-    = label_tag(:date, t('.date'))
-    = date_field_tag :date, params[:date]
-  = submit_tag t('.submit'), name: nil, class: "btn btn-default"
+.container
+  .page-header
+    %h2= t('.listed_date') + @chosen_date.strftime('%d/%m/%Y')
+  = form_tag spaces_path, method: "get", :html => { :id => "spaces_search_form" }, class: "form-inline" do
+    .form-group
+      = label_tag(:date, t('.date'))
+      = date_field_tag :date, params[:date]
+    = submit_tag t('.submit'), name: nil, class: "btn btn-default"
 
-- @spaces.distinct.pluck(:floor).each do |floor|
-  %h3= t('spaces.index.floor') + " #{floor}"
-  %table.table.table-bordered
-    %tbody
-      - @spaces.with_floor(floor).distinct.pluck(:row).each do |row|
-        %tr
-          - @spaces.with_floor(floor).with_row(row).each do |space|
-            - if space.is_booked(@chosen_date)
-              %td.danger= "#{space.display_space}"
-            - else
-              %td.success= "#{space.display_space}"
+  - @spaces.distinct.pluck(:floor).each do |floor|
+    %h3= t('spaces.index.floor') + " #{floor}"
+    %table.table.table-bordered
+      %tbody
+        - @spaces.with_floor(floor).distinct.pluck(:row).each do |row|
+          %tr
+            - @spaces.with_floor(floor).with_row(row).each do |space|
+              - if space.is_booked(@chosen_date)
+                %td.danger= "#{space.display_space}"
+              - else
+                %td.success= "#{space.display_space}"

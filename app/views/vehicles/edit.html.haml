@@ -1,7 +1,13 @@
-%h1= t('.title')
+.container
+  .page-header
+    %h1= t('.title')
+    %p= t('.description')
 
-= render 'form'
+  = render 'form'
 
-= link_to t('.show'), @vehicle
-\|
-= link_to t('.back'), vehicles_path
+  %br
+  = link_to t('.show'), @vehicle
+  \|
+  = link_to t('.back'), vehicles_path
+
+%br
