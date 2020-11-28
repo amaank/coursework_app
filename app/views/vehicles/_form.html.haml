@@ -8,7 +8,7 @@
 
   .field.form-group
     = f.label :registration_number
-    = f.text_field :registration_number, class: "form-control"
+    = f.text_field :registration_number, readonly: f.object.persisted?, class: "form-control"
   .field.form-group
     = f.label :make
     = f.text_field :make, class: "form-control"
