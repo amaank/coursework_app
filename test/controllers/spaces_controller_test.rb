@@ -20,7 +20,7 @@ class SpacesControllerTest < ActionDispatch::IntegrationTest
     assert_template partial: '_header', count: 1
 
     # Test basic view content.
-    assert_select 'h1', 'Listing Spaces for: ' + Date.today.strftime('%d/%m/%Y')
+    assert_select 'h1', 'Spaces'
   end
 
 end

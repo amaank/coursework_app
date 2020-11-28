@@ -33,7 +33,7 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     # Test basic view content.
     assert_select 'title', 'ParkMyCar'
     assert_select 'h1', 'Contact Us'
-    assert_select 'p', 'Complete the following form to get in touch with us.'
+    assert_select 'p', 'We\'d love to hear your feedback!'
   end
 
   # Test request_contact action when no email supplied.

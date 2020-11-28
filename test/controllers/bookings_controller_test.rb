@@ -23,7 +23,7 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
     assert_template partial: '_bookings_list', count: 1
 
     # Test basic view content.
-    assert_select 'h1', ("Bookings for Registration: " + @vehicle.registration_number)
+    assert_select 'h1', ("Bookings for " + @vehicle.registration_number)
     assert_select 'th', 'Floor'
     assert_select 'th', 'Row'
     assert_select 'th', 'Column'
@@ -91,7 +91,7 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
     assert_template partial: '_form', count: 1
 
     # Test basic view content.
-    assert_select 'h1', 'Editing Booking'
+    assert_select 'h1', 'Update Booking'
     assert_select 'a', 'Show'
     assert_select 'a', 'Back'
   end

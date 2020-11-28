@@ -21,7 +21,7 @@ class VehiclesControllerTest < ActionDispatch::IntegrationTest
     assert_template partial: '_header', count: 1
 
     # Test basic view content.
-    assert_select 'h1', 'Listing Vehicles'
+    assert_select 'h1', 'My Vehicles'
     assert_select 'th', 'Registration Number'
     assert_select 'th', 'Make'
     assert_select 'th', 'Model'
@@ -88,7 +88,7 @@ class VehiclesControllerTest < ActionDispatch::IntegrationTest
     assert_template partial: '_form', count: 1
 
     # Test basic view content.
-    assert_select 'h1', 'Editing Vehicle'
+    assert_select 'h1', 'Update Vehicle'
     assert_select 'a', 'Show'
     assert_select 'a', 'Back'
   end
