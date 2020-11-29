@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # Routes for vehicles.
   resources :vehicles do
     # Routes for bookings.
-    resources :bookings
+    resources :bookings, except: [:index, :show]
   end
 
   # Make home the root of the site.

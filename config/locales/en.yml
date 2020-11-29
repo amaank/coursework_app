@@ -139,10 +139,10 @@ en:
       make: "Make:"
       model: "Model:"
       colour: "Colour:"
-      edit: Update
+      edit: Update Vehicle
       back: Back
       confirmation: Are you sure?
-      add: Add Booking
+      add: New Booking
     validation:
       invalid_reg_number: "must be in line with the current format (two letters and two numbers, followed by a space and then three letters), for example: AB12 CDE. If you have an older or private registration, please get in touch via the contact page!"
 
@@ -165,19 +165,9 @@ en:
       title: Update Booking
       show: Show
       back: Back
-    index:
-      title: "Bookings for "
-      new: New Booking
     new:
       title: New Booking for
       description: Make a new booking for this vehicle
-      back: Back
-    show:
-      space: "Space:"
-      vehicle: "Vehicle:"
-      cost_type: "Cost Type:"
-      date: "Date:"
-      edit: Update
       back: Back
     create:
       success: Booking was successfully made.
@@ -186,8 +176,8 @@ en:
     destroy:
       success: Booking was successfully removed.
     validation:
-      invalid_space: cannot be booked twice for one day.
-      invalid_vehicle: cannot be booked twice for one day.
+      invalid_space: is already booked for this date.
+      invalid_vehicle: already has a booking for this date.
       invalid_date:
           too_early: " can't be in the past."
           too_late: " can't be more than a week from today."

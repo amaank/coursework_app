@@ -1,19 +1,8 @@
 class BookingsController < ApplicationController
   before_action :get_vehicle
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_booking, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
   before_action :check_booking_user
-
-  # GET /vehicles/1/bookings
-  # GET /vehicles/1/bookings.json
-  def index
-    @bookings = @vehicle.bookings
-  end
-
-  # GET /vehicles/1/bookings/1
-  # GET /vehicles/1/bookings/1.json
-  def show
-  end
 
   # GET /vehicles/1/bookings/new
   def new
@@ -31,11 +20,9 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to vehicle_bookings_path(@vehicle), notice: I18n.t('bookings.create.success') }
-        format.json { render :show, status: :created, location: @booking }
+        format.html { redirect_to vehicle_path(@vehicle), notice: I18n.t('bookings.create.success') }
       else
         format.html { render :new }
-        format.json { render json: @booking.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -45,8 +32,7 @@ class BookingsController < ApplicationController
   def update
     respond_to do |format|
       if @booking.update(booking_params)
-        format.html { redirect_to vehicle_booking_path(@vehicle), notice: I18n.t('bookings.update.success') }
-        format.json { render :show, status: :ok, location: @booking }
+        format.html { redirect_to vehicle_path(@vehicle), notice: I18n.t('bookings.update.success') }
       else
         format.html { render :edit }
         format.json { render json: @booking.errors, status: :unprocessable_entity }
@@ -59,7 +45,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking.destroy
     respond_to do |format|
-      format.html { redirect_to vehicle_bookings_path(@vehicle), notice: I18n.t('bookings.destroy.success') }
+      format.html { redirect_to vehicle_path(@vehicle), notice: I18n.t('bookings.destroy.success') }
       format.js { flash.now[:notice] = I18n.t('bookings.destroy.success') }
       format.json { head :no_content }
     end

@@ -9,7 +9,6 @@
       %th= t('.date')
       %th
       %th
-      %th
 
   %tbody
     - @vehicle.bookings.each do |booking|
@@ -20,6 +19,5 @@
         %td= booking.cost_type.name
         %td= number_to_currency(booking.cost_type.price, unit: "£")
         %td= booking.date.strftime('%d/%m/%Y')
-        %td= link_to t('.show'), vehicle_booking_path(@vehicle, booking)
         %td= link_to t('.edit'), edit_vehicle_booking_path(@vehicle, booking)
         %td= link_to t('.destroy'), [@vehicle, booking], method: :delete, data: { confirm: t('.confirmation') }, :remote => true
