@@ -23,7 +23,7 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
     assert_template partial: '_form', count: 1
 
     # Test basic view content.
-    assert_select 'h1', "New Booking for #{@vehicle.registration_number}"
+    assert_select 'h1', "New Booking for \"#{@vehicle.registration_number}\""
     assert_select 'a', 'Back'
 
   end
@@ -51,7 +51,7 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
     assert_template partial: '_form', count: 1
 
     # Test basic view content.
-    assert_select 'h1', 'Update Booking'
+    assert_select 'h1', "Update Booking for \"#{@vehicle.registration_number}\""
     assert_select 'a', 'Back'
   end
 

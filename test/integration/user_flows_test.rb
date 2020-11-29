@@ -9,9 +9,9 @@ class UserFlowsTest < Capybara::Rails::TestCase
     # Sign up.
     visit root_path
     click_link_or_button("Sign Up")
-    fill_in "Email", with: email
-    fill_in "Password", with: password
-    fill_in "Password confirmation", with: password
+    fill_in "Email:", with: email
+    fill_in "Password:", with: password
+    fill_in "Password confirmation:", with: password
     click_link_or_button("Sign up")
     assert page.has_content?("Welcome! You have signed up successfully.")
 
@@ -21,8 +21,8 @@ class UserFlowsTest < Capybara::Rails::TestCase
 
     # Log in.
     click_link_or_button("Login")
-    fill_in "Email", with: email
-    fill_in "Password", with: password
+    fill_in "Email:", with: email
+    fill_in "Password:", with: password
     click_link_or_button("Log in")
     assert page.has_content?("Signed in successfully.")
   end

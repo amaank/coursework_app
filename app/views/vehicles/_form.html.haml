@@ -7,16 +7,16 @@
           %li= message
 
   .field.form-group
-    = f.label :registration_number
+    = f.label :registration_number, "#{:registration_number.to_s.humanize}:"
     = f.text_field :registration_number, readonly: f.object.persisted?, class: "form-control"
   .field.form-group
-    = f.label :make
+    = f.label :make, "#{:make.to_s.humanize}:"
     = f.text_field :make, class: "form-control"
   .field.form-group
-    = f.label :model
+    = f.label :model, "#{:model.to_s.humanize}:"
     = f.text_field :model, class: "form-control"
   .field.form-group
-    = f.label :colour
+    = f.label :colour, "#{:colour.to_s.humanize}:"
     = f.text_field :colour, class: "form-control"
   .actions
     = f.submit t('.submit'), class: "btn btn-default"

@@ -96,7 +96,7 @@ en:
       floor: Floor
       row: Row
       column: Column
-      date: "Pick a date:"
+      date: "Date:"
       submit: Search
       invalid_date:
         default: "Invalid date chosen - showing spaces for today."
@@ -111,8 +111,8 @@ en:
     edit:
       title: Update
       description: Configure the details that you have provided to us for this vehicle
-      show: Show
-      back: Back
+      show: Show Vehicle
+      back: All Vehicles
     index:
       title: My Vehicles
       description: An overview of the vehicles that you have registered with us
@@ -162,7 +162,8 @@ en:
       row: Row
       column: Column
     edit:
-      title: Update Booking
+      title: Update Booking for
+      description: Update a booking for this vehicle
       show: Show
       back: Back
     new:
@@ -181,3 +182,33 @@ en:
       invalid_date:
           too_early: " can't be in the past."
           too_late: " can't be more than a week from today."
+
+  devise:
+    passwords:
+      new:
+        title: "Forgot your password?"
+        description: Regain access to your account
+        submit: Send me reset password instructions
+    registrations:
+      edit:
+        title: Edit
+        description: Configure your account with us
+        awaiting_confirmation: "Currently waiting confirmation for:"
+        leave_blank: "(leave blank if you don't want to change it)"
+        min_characters: characters minimum
+        current_password_needed: "(we need your current password to confirm your changes)"
+        unhappy: "Unhappy?"
+        update: Update
+        cancel_account: Cancel my account
+        confirmation: "Are you sure?"
+        back: Back
+      new:
+        title: Sign up
+        description: Create an account with us
+        min_characters: characters minimum
+        submit: Sign up
+    sessions:
+      new:
+        title: Log in
+        description: Sign in to an existing account
+        submit: Log in
