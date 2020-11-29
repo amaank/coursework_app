@@ -4,7 +4,6 @@
       %th= t('spaces.index.floor')
       %th= t('spaces.index.row')
       %th= t('spaces.index.column')
-      %th= t('.vehicle')
       %th= t('.type')
       %th= t('.price')
       %th= t('.date')
@@ -18,7 +17,6 @@
         %td= booking.space.floor
         %td= booking.space.row
         %td= booking.space.column
-        %td= booking.vehicle.registration_number
         %td= booking.cost_type.name
         %td= number_to_currency(booking.cost_type.price, unit: "£")
         %td= booking.date.strftime('%d/%m/%Y')

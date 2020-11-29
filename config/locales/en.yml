@@ -169,7 +169,8 @@ en:
       title: "Bookings for "
       new: New Booking
     new:
-      title: New Booking
+      title: New Booking for
+      description: Make a new booking for this vehicle
       back: Back
     show:
       space: "Space:"

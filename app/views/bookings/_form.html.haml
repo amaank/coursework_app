@@ -10,8 +10,6 @@
     = f.label :space
     = f.collection_select :space_id, Space.all, :id, :display_space
   .field
-    = f.label :vehicle
-    %p= @vehicle.registration_number
     = f.hidden_field :vehicle_id, value: @vehicle.id
   .field
     = f.label :cost_type
