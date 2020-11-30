@@ -1,17 +1,27 @@
 // Use attributes of the email returned by the mailer to generate view.
 
-%p= "Dear #{t('app_title')},"
-%p= "Could you get in touch with me please?"
+.email
+  %h3 Received Email
 
-%dl
-  %dt Name:
-  %dd= @name
-  %dt Email:
-  %dd= @email
-  %dt Telephone:
-  %dd= @telephone
+  %hr
 
-%p= @message
+  %p= "Dear #{t('app_title')},"
+  %p= @message
+  %p Could you get in touch with me please?
+  %p My details are:
 
-%p Thanks,
-%p= @name
+  %table
+    %tr
+      %td Name:
+      %td= @name
+    %tr
+      %td Email:
+      %td= @email
+    %tr
+      %td Telephone:
+      %td= @telephone
+
+  %p Thanks,
+  %p= @name.split[0]
+
+  %hr

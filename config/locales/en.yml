@@ -80,6 +80,9 @@ en:
       no_email: You must supply an email address.
       email_sent: Thank you. We will be in touch shortly.
 
+  mailer:
+    message: "I am having trouble registering my vehicle with your service. My number plate is from before 2001, and the car registration form suggested to contact you if this was the case!"
+
   cost_types:
     index:
       title: Pricing
