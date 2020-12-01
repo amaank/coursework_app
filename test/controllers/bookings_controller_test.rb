@@ -24,7 +24,7 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
 
     # Test basic view content.
     assert_select 'h1', "New Booking for \"#{@vehicle.registration_number}\""
-    assert_select 'a', 'Back'
+    assert_select 'a', 'Show Vehicle'
 
   end
 
@@ -52,7 +52,7 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
 
     # Test basic view content.
     assert_select 'h1', "Update Booking for \"#{@vehicle.registration_number}\""
-    assert_select 'a', 'Back'
+    assert_select 'a', 'Show Vehicle'
   end
 
   # Test update action.

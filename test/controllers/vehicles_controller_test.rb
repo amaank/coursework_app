@@ -43,7 +43,7 @@ class VehiclesControllerTest < ActionDispatch::IntegrationTest
 
     # Test basic view content.
     assert_select 'h1', 'New Vehicle'
-    assert_select 'a', 'Back'
+    assert_select 'a', 'My Vehicles'
   end
 
   # Test create action.
@@ -72,7 +72,7 @@ class VehiclesControllerTest < ActionDispatch::IntegrationTest
     # Test basic view content.
     assert_select 'a', 'Update Vehicle'
     assert_select 'a', 'New Booking'
-    assert_select 'a', 'Back'
+    assert_select 'a', 'My Vehicles'
   end
 
   # Test edit action.
@@ -90,7 +90,7 @@ class VehiclesControllerTest < ActionDispatch::IntegrationTest
     # Test basic view content.
     assert_select 'h1', "Update \"#{@vehicle.registration_number}\""
     assert_select 'a', 'Show Vehicle'
-    assert_select 'a', 'All Vehicles'
+    assert_select 'a', 'My Vehicles'
   end
 
   # Test update action.
