@@ -23,6 +23,7 @@
     %p= t('.bookings_description')
   = render 'shared/bookings_list'
 
+  %hr
   = link_to t('.edit'), edit_vehicle_path(@vehicle)
   \|
   = link_to t('.add'), new_vehicle_booking_path(@vehicle)

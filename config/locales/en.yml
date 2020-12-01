@@ -50,9 +50,9 @@ en:
       type: Type
       price: Price
       date: Date
-      show: Show Booking
-      edit: Update Booking
-      destroy: Remove Booking
+      show: Show
+      edit: Update
+      destroy: Remove
       confirmation: Are you sure?
 
   home:
@@ -119,7 +119,7 @@ en:
       title: Update
       description: Configure the details that you have provided to us for this vehicle
       show: Show Vehicle
-      back: All Vehicles
+      back: My Vehicles
     index:
       title: My Vehicles
       description: An overview of the vehicles that you have registered with us
@@ -135,7 +135,7 @@ en:
     new:
       title: New Vehicle
       description: Register a new vehicle with us
-      back: Back
+      back: My Vehicles
     show:
       title: Showing
       bookings: Bookings
@@ -147,7 +147,7 @@ en:
       model: "Model:"
       colour: "Colour:"
       edit: Update Vehicle
-      back: Back
+      back: My Vehicles
       confirmation: Are you sure?
       add: New Booking
     validation:
@@ -172,11 +172,11 @@ en:
       title: Update Booking for
       description: Update a booking for this vehicle
       show: Show
-      back: Back
+      back: Show Vehicle
     new:
       title: New Booking for
       description: Make a new booking for this vehicle
-      back: Back
+      back: Show Vehicle
     create:
       success: Booking was successfully made.
     update:
