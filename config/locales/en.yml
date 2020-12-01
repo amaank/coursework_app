@@ -99,6 +99,10 @@ en:
       floor: Floor
       row: Row
       column: Column
+      pick_date: Pick a Date
+      legend: Legend
+      available: Available
+      unavailable: Unavailable
       date: "Date:"
       submit: Search
       invalid_date:
