@@ -1,4 +1,4 @@
-= form_with(model: [@vehicle, @booking], local: true, class: "form-horizontal") do |f|
+= form_with(model: [@vehicle, @booking], local: true) do |f|
   - if @booking.errors.any?
     #error_explanation
       %h2= "#{pluralize(@booking.errors.count, t('.error'))} #{t('.error_message')}"
@@ -7,19 +7,18 @@
           %li= message
 
   .field.form-group
-    = f.label :space, "#{:space.to_s.humanize}:", class: "control-label col-sm-2"
-    .col-sm-10
-      = f.collection_select :space_id, Space.all, :id, :display_space, class: "form-control"
+    = f.label :space, "#{:space.to_s.humanize}:"
+    %br
+    = f.collection_select :space_id, Space.all, :id, :display_space, class: "form-control"
   .field
     = f.hidden_field :vehicle_id, value: @vehicle.id
   .field.form-group
-    = f.label :cost_type, "#{:cost_type.to_s.humanize}:", class: "control-label col-sm-2"
-    .col-sm-10
-      = f.collection_select :cost_type_id, CostType.all, :id, :name, class: "form-control"
+    = f.label :cost_type, "#{:cost_type.to_s.humanize}:"
+    %br
+    = f.collection_select :cost_type_id, CostType.all, :id, :name, class: "form-control"
   .field.form-group
-    = f.label :date, "#{:date.to_s.humanize}:", class: "control-label col-sm-2"
-    .col-sm-10
-      = f.date_select :date, order: [:day, :month, :year], start_year: Date.today.year, end_year: Date.today.year, class: "form-control"
+    = f.label :date, "#{:date.to_s.humanize}:"
+    %br
+    = f.date_select :date, order: [:day, :month, :year], start_year: Date.today.year, end_year: Date.today.year, class: "form-control"
   .actions.form-group
-    .col-sm-offset-2.col-sm-10
-      = f.submit t('.submit'), class: "btn btn-default"
+    = f.submit t('.submit'), class: "btn btn-default"
