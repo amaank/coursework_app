@@ -12,9 +12,7 @@
         %th= t('.make')
         %th= t('.model')
         %th= t('.colour')
-        %th
-        %th
-        %th
+        %th.text-center{:colspan => "3"}= t('.options')
 
     %tbody
       - @vehicles.each do |vehicle|
@@ -23,9 +21,9 @@
           %td= vehicle.make
           %td= vehicle.model
           %td= vehicle.colour
-          %td= link_to t('.show'), vehicle
-          %td= link_to t('.edit'), edit_vehicle_path(vehicle)
-          %td= link_to t('.destroy'), vehicle, method: :delete, data: { confirm: t('.confirmation') }, :remote => true
+          %td.active= link_to t('.show'), vehicle
+          %td.active= link_to t('.edit'), edit_vehicle_path(vehicle)
+          %td.active= link_to t('.destroy'), vehicle, method: :delete, data: { confirm: t('.confirmation') }, :remote => true
 
   %br
 

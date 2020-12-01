@@ -54,6 +54,7 @@ en:
       edit: Update
       destroy: Remove
       confirmation: Are you sure?
+      options: Options
 
   home:
     home:
@@ -132,6 +133,7 @@ en:
       destroy: Un-register
       confirmation: Are you sure?
       new: New Vehicle
+      options: Options
     new:
       title: New Vehicle
       description: Register a new vehicle with us
