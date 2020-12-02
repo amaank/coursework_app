@@ -4,12 +4,13 @@
 
 .sidenav {
   padding-top: 20px;
+  padding-bottom: 20px;
   background-color: #f1f1f1;
   height: 100%;
 }
 
 .row.content {
-  height: 450px
+  height: 100%;
 }
 
 @media screen and (max-width: 767px) {

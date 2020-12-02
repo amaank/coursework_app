@@ -1,5 +1,21 @@
 document.addEventListener("turbolinks:load", function() {
 
+  function setInfoToggle(page) {
+    $(`#${page}`).click(function(){
+      if ($(`#${page}-info`).css("display") == "none") {
+        $(`#${page}-info`).removeClass();
+      } else {
+        $(`#${page}-info`).addClass("hidden")
+      }
+    });
+  }
+
+  setInfoToggle("home");
+  setInfoToggle("contact");
+  setInfoToggle("my-vehicles");
+  setInfoToggle("pricing");
+  setInfoToggle("spaces");
+
   // Form field validation for contact form.
   $("#contact_form").validate({
     // Validation rules.
