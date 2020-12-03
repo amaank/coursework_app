@@ -5,32 +5,51 @@
 .container-fluid.text-center
   .row.content
     .col-sm-3.sidenav
-      %h3 Unsure where to go first?
-      %p Click a name to learn more about the page
-      %button.btn.btn-default.btn-block{:id => "home"} Home
+      %h3= t('.sidebar_title')
+      %p= t('.learn_more')
+
+      %button.btn.btn-default.btn-block{:id => "home"}= t('.home_heading')
       .container-fluid.hidden{:id => "home-info"}
         %br
-        %p info about home
+        %p= t('.home_info')
       %hr
-      %button.btn.btn-default.btn-block{:id => "contact"} Contact
+
+      %button.btn.btn-default.btn-block{:id => "contact"}= t('.contact_heading')
       .container-fluid.hidden{:id => "contact-info"}
         %br
-        %p info about contact
+        %p= t('.contact_info')
+        %p= t('.visit_page.message')
+        = link_to t('.visit_page.link'), contact_path
       %hr
-      %button.btn.btn-default.btn-block{:id => "my-vehicles"} My Vehicles
+
+      %button.btn.btn-default.btn-block{:id => "my-vehicles"}= t('.my_vehicles_heading')
       .container-fluid.hidden{:id => "my-vehicles-info"}
         %br
-        %p info about my vehicles
+        %p
+          %strong= t('.sign_in_note')
+        %p= t('.my_vehicles_info')
+        %p= t('.visit_page.message')
+        = link_to t('.visit_page.link'), vehicles_path
       %hr
-      %button.btn.btn-default.btn-block{:id => "pricing"} Pricing
+
+      %button.btn.btn-default.btn-block{:id => "pricing"}= t('.pricing_heading')
       .container-fluid.hidden{:id => "pricing-info"}
         %br
-        %p info about pricing
+        %p
+          %strong= t('.sign_in_note')
+        %p= t('.pricing_info')
+        %p= t('.visit_page.message')
+        = link_to t('.visit_page.link'), pricing_path
       %hr
-      %button.btn.btn-default.btn-block{:id => "spaces"} Spaces
+
+      %button.btn.btn-default.btn-block{:id => "spaces"}= t('.spaces_heading')
       .container-fluid.hidden{:id => "spaces-info"}
         %br
-        %p info about spaces
+        %p
+          %strong= t('.sign_in_note')
+        %p= t('.spaces_info')
+        %p= t('.visit_page.message')
+        = link_to t('.visit_page.link'), spaces_path
       %br
 
     .col-sm-9.text-left

@@ -60,6 +60,22 @@ en:
     home:
       title: Home
       description: Welcome to ParkMyCar!
+      sidebar_title: Unsure where to go first?
+      learn_more: Click a name to learn more about the corresponding page
+      home_heading: Home
+      home_info: This is the page that you are currently on. It introduces you to our service and provides guidance regarding how to use it.
+      contact_heading: Contact
+      contact_info: This page allows you to contact us with any feedback or queries you may have. Simply fill in your details and submit them, and we'll get back to you soon!
+      my_vehicles_heading: My Vehicles
+      my_vehicles_info:
+      pricing_heading: Pricing
+      pricing_info:
+      spaces_heading: Spaces
+      spaces_info:
+      sign_in_note: "Note: you must be signed in to visit this page."
+      visit_page:
+        message: "To visit this page, you can either use the menu at the top, or click the following link:"
+        link: Visit Page
 
     contact:
       title: Contact Us
