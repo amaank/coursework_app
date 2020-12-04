@@ -67,11 +67,11 @@ en:
       contact_heading: Contact
       contact_info: This page allows you to contact us with any feedback or queries you may have. Simply fill in your details and submit them, and we'll get back to you soon!
       my_vehicles_heading: My Vehicles
-      my_vehicles_info:
+      my_vehicles_info: This page provides you with everything you need to register new vehicles to our service, configure registered vehicles, as well as make and configure bookings for your registered vehicles.
       pricing_heading: Pricing
-      pricing_info:
+      pricing_info: This page provides you with up-to-date information regarding the types of parking service that are available to you.
       spaces_heading: Spaces
-      spaces_info:
+      spaces_info: This page allows you to see which parking spaces are available on a given date, prior to making a booking.
       sign_in_note: "Note: you must be signed in to visit this page."
       visit_page:
         message: "To visit this page, you can either use the menu at the top, or click the following link:"
