@@ -2,7 +2,7 @@
   %h1= t('.title')
   %p= t('.description')
 
-.container-fluid.text-center
+.container-fluid.text-center.page-content
   .row.content
     .col-sm-3.sidenav
       %h3= t('.sidebar_title')
@@ -52,7 +52,7 @@
         = link_to t('.visit_page.link'), spaces_path
       %br
 
-    .col-sm-9.text-left
+    .col-sm-9.text-left.primary-content
       .container-fluid
         %h1= t('.welcome.heading')
         %p= t('.welcome.message')
@@ -83,5 +83,4 @@
           %li Step 1
           %li Step 2
           %li Step 3
-
-%br
+      %br
