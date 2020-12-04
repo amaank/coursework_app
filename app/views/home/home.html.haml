@@ -54,8 +54,34 @@
 
     .col-sm-9.text-left
       .container-fluid
-        %h1 Welcome
-        %p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        %h1= t('.welcome.heading')
+        %p= t('.welcome.message')
         %hr/
-        %h3 How to Get Started
-        %p Lorem ipsum...
+        %h1= t('.get_started.heading')
+        %h3 Step 1
+        %ol
+          %li Step 1
+          %li Step 2
+          %li Step 3
+        %h3 Step 2
+        %ol
+          %li Step 1
+          %li Step 2
+          %li Step 3
+        %h3 Step 3
+        %ol
+          %li Step 1
+          %li Step 2
+          %li Step 3
+        %h3 Step 4
+        %ol
+          %li Step 1
+          %li Step 2
+          %li Step 3
+        %h3 Step 5
+        %ol
+          %li Step 1
+          %li Step 2
+          %li Step 3
+
+%br

@@ -60,6 +60,11 @@ en:
     home:
       title: Home
       description: Welcome to ParkMyCar!
+      welcome:
+        heading: Welcome!
+        message: ParkMyCar is a system which you can use to book parking spaces in advance with ease. We offer a number of different parking types, which our members can make use of by registering their vehicles with our service. Whether you're accessing our service on the go, or from the comfort of your own home, ParkMyCar provides hassle-free advance parking whenever you may need it!
+      get_started:
+        heading: How to Get Started
       sidebar_title: Unsure where to go first?
       learn_more: Click a name to learn more about the corresponding page
       home_heading: Home

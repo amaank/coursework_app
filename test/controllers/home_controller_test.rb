@@ -16,7 +16,7 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
 
     # Test basic view content.
     assert_select 'title', 'ParkMyCar'
-    assert_select 'h1', 'Welcome'
+    assert_select 'h1', 'Welcome!'
   end
 
   # Test contact action.
