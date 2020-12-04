@@ -21,7 +21,8 @@
     = render 'shared/header'
 
     // include view corresponding to action
-    = yield
+    .fill-page
+      = yield
 
     // include footer partial
     = render 'shared/footer'
