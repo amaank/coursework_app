@@ -60,11 +60,6 @@ en:
     home:
       title: Home
       description: Welcome to ParkMyCar!
-      welcome:
-        heading: Welcome!
-        message: ParkMyCar is a system which you can use to book parking spaces in advance with ease. We offer a number of different parking types, which our members can make use of by registering their vehicles with our service. Whether you're accessing our service on the go, or from the comfort of your own home, ParkMyCar provides hassle-free advance parking whenever you may need it!
-      get_started:
-        heading: How to Get Started
       sidebar_title: Unsure where to go first?
       learn_more: Click a name to learn more about the corresponding page
       home_heading: Home
@@ -81,6 +76,30 @@ en:
       visit_page:
         message: "To visit this page, you can either use the menu at the top, or click the following link:"
         link: Visit Page
+
+      welcome:
+        heading: Welcome!
+        message: ParkMyCar is a system which you can use to book parking spaces in advance with ease. We offer a number of different parking types, which our members can make use of by registering their vehicles with our service. Whether you're accessing our service on the go, or from the comfort of your own home, ParkMyCar provides hassle-free advance parking whenever you may need it!
+      get_started:
+        heading: How to Get Started
+        step_1:
+          heading: 1. Create an account or sign in to an existing account
+          message: "If you're not currently logged in, you can use the menu at the top, or the following links:"
+          sign_up: Create an account
+          sign_in: Sign in to an existing account
+        step_2:
+          heading: 2. Register a vehicle
+          message: "Once you're logged in, you can register a vehicle with our service through the 'My Vehicles' page:"
+          my_vehicles: Visit 'My Vehicles'
+        step_3:
+          heading: 3. Check which choices are available to you
+          pricing: Review pricing for the various services we offer
+          spaces: See which parking spaces are available on your chosen date
+        step_4:
+          heading: 4. Make a booking
+          introduction: Once you've decided the space you'd like to book and the type of parking you want, you can proceed to making a booking!
+          message: This can be done through the page of the vehicle for which you would like to make a booking, which can again be accessed through the 'My Vehicles' page, by clicking 'show' next to your chosen vehicle.
+          note: "Note: bookings can be made up to a maximum of 7 days in advance, and all bookings last for 24 hours."
 
     contact:
       title: Contact Us
@@ -188,9 +207,7 @@ en:
       error: error
       error_message: "prevented this booking from being made:"
       submit: Save
-      floor: Floor
-      row: Row
-      column: Column
+      cost_type: Type
     edit:
       title: Update Booking for
       description: Update a booking for this vehicle

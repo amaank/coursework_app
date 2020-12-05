@@ -13,7 +13,7 @@
   .field
     = f.hidden_field :vehicle_id, value: @vehicle.id
   .field.form-group
-    = f.label :cost_type, "#{:cost_type.to_s.humanize}:"
+    = f.label :cost_type, t('.cost_type')
     %br
     = f.collection_select :cost_type_id, CostType.all, :id, :name, class: "form-control"
   .field.form-group

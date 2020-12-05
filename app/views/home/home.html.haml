@@ -2,12 +2,12 @@
   %h1= t('.title')
   %p= t('.description')
 
-.container-fluid.text-center.page-content
+.container-fluid.text-center.page-content.fill-space
   .row.content
     .col-sm-3.sidenav
       .page-header
-        %h3= t('.sidebar_title')
-        %p= t('.learn_more')
+        %h1= t('.sidebar_title')
+        %p.lead= t('.learn_more')
 
       %button.btn.btn-default.btn-block{:id => "home"}= t('.home_heading')
       .container-fluid.hidden{:id => "home-info"}
@@ -59,29 +59,34 @@
         %p= t('.welcome.message')
         %hr/
         %h1= t('.get_started.heading')
-        %h3 Step 1
-        %ol
-          %li Step 1
-          %li Step 2
-          %li Step 3
-        %h3 Step 2
-        %ol
-          %li Step 1
-          %li Step 2
-          %li Step 3
-        %h3 Step 3
-        %ol
-          %li Step 1
-          %li Step 2
-          %li Step 3
-        %h3 Step 4
-        %ol
-          %li Step 1
-          %li Step 2
-          %li Step 3
-        %h3 Step 5
-        %ol
-          %li Step 1
-          %li Step 2
-          %li Step 3
+
+        %h5
+          %strong= t('.get_started.step_1.heading')
+        %p= t('.get_started.step_1.message')
+        %ul
+          %li
+            = link_to t('.get_started.step_1.sign_up'), new_user_registration_path
+          %li
+            = link_to t('.get_started.step_1.sign_in'), new_user_session_path
+
+        %h5
+          %strong= t('.get_started.step_2.heading')
+        %p=t('.get_started.step_2.message')
+        %p
+          = link_to t('.get_started.step_2.my_vehicles'), vehicles_path
+
+        %h5
+          %strong= t('.get_started.step_3.heading')
+        %p
+          = link_to t('.get_started.step_3.pricing'), pricing_path
+        %p
+          = link_to t('.get_started.step_3.spaces'), spaces_path
+
+        %h5
+          %strong= t('.get_started.step_4.heading')
+        %p= t('.get_started.step_4.introduction')
+        %p= t('.get_started.step_4.message')
+        %p
+          %strong= t('.get_started.step_4.note')
+
       %br
