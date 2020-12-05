@@ -5,8 +5,9 @@
 .container-fluid.text-center.page-content
   .row.content
     .col-sm-3.sidenav
-      %h3= t('.sidebar_title')
-      %p= t('.learn_more')
+      .page-header
+        %h3= t('.sidebar_title')
+        %p= t('.learn_more')
 
       %button.btn.btn-default.btn-block{:id => "home"}= t('.home_heading')
       .container-fluid.hidden{:id => "home-info"}

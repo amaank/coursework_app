@@ -2,9 +2,9 @@
   %h1= t('.title')
   %p= t('.description')
 
-%br
+.fill-space
 
-.container
+.container.fill-space
   %table.table.table-striped
     %thead
       %tr
@@ -19,4 +19,4 @@
           %td= number_to_currency(cost_type.price, unit: "£")
           %td= cost_type.description
 
-  %br
+.fill-space

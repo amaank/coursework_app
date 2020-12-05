@@ -2,9 +2,9 @@
   %h1= t('.title')
   %p= t('.description')
 
-%br
+.fill-space
 
-.container
+.container.fill-space
   %table.table.table-striped
     %thead
       %tr
@@ -25,9 +25,9 @@
           %td.active= link_to t('.edit'), edit_vehicle_path(vehicle)
           %td.active= link_to t('.destroy'), vehicle, method: :delete, data: { confirm: t('.confirmation') }, :remote => true
 
-  %br
-
   %hr
   = link_to t('.new'), new_vehicle_path
+  %br
+  %br
 
-%br
+.fill-space

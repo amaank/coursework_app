@@ -2,7 +2,9 @@
   %h1= t('.title')
   %p= t('.description')
 
-.container
+.fill-space
+
+.container.fill-space
   .page-header
     %h3= t('.pick_date')
     = form_tag spaces_path, method: "get", :html => { :id => "spaces_search_form" }, class: "form-inline" do
@@ -39,3 +41,5 @@
                 %td.danger
               - else
                 %td.success
+
+.fill-space

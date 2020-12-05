@@ -1,4 +1,6 @@
-.container
+.fill-space
+
+.container.fill-space
   .page-header
     %h1= "#{t('.title')} \"#{@vehicle.registration_number}\""
     %p= t('.description')
@@ -7,5 +9,7 @@
 
   %br
   = link_to t('.back'), vehicle_path(@vehicle)
+  %br
+  %br
 
-%br
+.fill-space
