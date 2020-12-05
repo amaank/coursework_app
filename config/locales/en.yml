@@ -45,6 +45,7 @@ en:
       logout: Logout
       login: Login
       sign_up: Sign Up
+
     bookings_list:
       vehicle: Vehicle
       type: Type
@@ -76,7 +77,6 @@ en:
       visit_page:
         message: "To visit this page, you can either use the menu at the top, or click the following link:"
         link: Visit Page
-
       welcome:
         heading: Welcome!
         message: ParkMyCar is a system which you can use to book parking spaces in advance with ease. We offer a number of different parking types, which our members can make use of by registering their vehicles with our service. Whether you're accessing our service on the go, or from the comfort of your own home, ParkMyCar provides hassle-free advance parking whenever you may need it!
@@ -106,7 +106,6 @@ en:
       description: We'd love to hear your feedback!
       form_heading: Contact Form
       form_description: Fill in the following form to let us know what you need!
-
       name: "Name:"
       enter_name: Enter your name
       email: "Email:"
@@ -156,11 +155,13 @@ en:
       error: error
       error_message: "prevented this vehicle from being registered:"
       submit: Save
+
     edit:
       title: Update
       description: Configure the details that you have provided to us for this vehicle
       show: Show Vehicle
       back: My Vehicles
+
     index:
       title: My Vehicles
       description: An overview of the vehicles that you have registered with us
@@ -174,10 +175,12 @@ en:
       confirmation: Are you sure?
       new: New Vehicle
       options: Options
+
     new:
       title: New Vehicle
       description: Register a new vehicle with us
       back: My Vehicles
+
     show:
       title: Showing
       bookings: Bookings
@@ -192,6 +195,7 @@ en:
       back: My Vehicles
       confirmation: Are you sure?
       add: New Booking
+
     validation:
       invalid_reg_number: "must be in line with the current format (two letters and two numbers, followed by a space and then three letters), for example: AB12 CDE. If you have an older or private registration, please get in touch via the contact page!"
 
@@ -208,21 +212,25 @@ en:
       error_message: "prevented this booking from being made:"
       submit: Save
       cost_type: Type
+
     edit:
       title: Update Booking for
       description: Update a booking for this vehicle
       show: Show
       back: Show Vehicle
+
     new:
       title: New Booking for
       description: Make a new booking for this vehicle
       back: Show Vehicle
+
     create:
       success: Booking was successfully made.
     update:
       success: Booking was successfully updated.
     destroy:
       success: Booking was successfully removed.
+
     validation:
       invalid_space: is already booked for this date.
       invalid_vehicle: already has a booking for this date.
@@ -236,6 +244,7 @@ en:
         title: "Forgot your password?"
         description: Regain access to your account
         submit: Send me reset password instructions
+
     registrations:
       edit:
         title: Edit
@@ -249,11 +258,13 @@ en:
         cancel_account: Cancel my account
         confirmation: "Are you sure?"
         back: Back
+
       new:
         title: Sign up
         description: Create an account with us
         min_characters: characters minimum
         submit: Sign up
+
     sessions:
       new:
         title: Log in
