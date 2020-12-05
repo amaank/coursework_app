@@ -17,7 +17,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.navbar {
+.navbar, #flash_messages, #flash_messages > div {
   margin-bottom: 0;
   border-radius: 0;
 }
