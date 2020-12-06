@@ -133,7 +133,7 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
     # Check that the response includes a necessary message for the user.
     assert @response.body.include?("#{I18n.t('bookings.destroy.success')}")
 
-    # Check that the response type is JavaScript.
+    # Check that JavaScript is returned in response to the action.
     assert_equal "text/javascript", @response.media_type
 
     # Test for appropriate flash notice following destroy action.
@@ -148,7 +148,7 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
       # Perform RESTful request.
       delete vehicle_booking_path(@vehicle, @booking)
     end
-    
+
     assert_redirected_to new_user_session_path
     assert_equal "You need to sign in or sign up before continuing.", flash[:alert]
   end

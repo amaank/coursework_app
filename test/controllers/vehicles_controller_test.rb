@@ -110,4 +110,22 @@ class VehiclesControllerTest < ActionDispatch::IntegrationTest
     # Test for redirect after successful 'delete' request.
     assert_redirected_to vehicles_url
   end
+
+  # Test AJAX request for destroy action.
+  test "should send AJAX request on destroy" do
+    # Test for a decrease in the number of Vehicle objects, following destroy action.
+    assert_difference('Vehicle.count', -1) do
+      # Perform RESTful request.
+      delete vehicle_url(@vehicle), xhr: true
+    end
+
+    # Check that the response includes a necessary message for the user.
+    assert @response.body.include?("#{I18n.t('vehicles.destroy.success')}")
+
+    # Check that JavaScript is returned in response to the action.
+    assert_equal "text/javascript", @response.media_type
+
+    # Test for appropriate flash notice following destroy action.
+    assert_equal "#{I18n.t('vehicles.destroy.success')}", flash.now[:notice]
+  end
 end
