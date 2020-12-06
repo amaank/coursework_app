@@ -20,6 +20,7 @@ class CostTypesControllerTest < ActionDispatch::IntegrationTest
     assert_template partial: '_header', count: 1
 
     # Test basic view content.
+    assert_select 'title', 'ParkMyCar'
     assert_select 'h1', 'Pricing'
     assert_select 'th', 'Name'
     assert_select 'th', 'Price'

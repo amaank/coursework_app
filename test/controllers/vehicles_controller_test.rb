@@ -26,6 +26,7 @@ class VehiclesControllerTest < ActionDispatch::IntegrationTest
     assert_template partial: '_header', count: 1
 
     # Test basic view content.
+    assert_select 'title', 'ParkMyCar'
     assert_select 'h1', 'My Vehicles'
     assert_select 'p', 'An overview of the vehicles that you have registered with us'
     assert_select 'th', 'Registration Number'
@@ -60,6 +61,7 @@ class VehiclesControllerTest < ActionDispatch::IntegrationTest
     assert_template partial: '_form', count: 1
 
     # Test basic view content.
+    assert_select 'title', 'ParkMyCar'
     assert_select 'h1', 'New Vehicle'
     assert_select 'p', 'Register a new vehicle with us'
     assert_select 'a', 'My Vehicles'
@@ -113,6 +115,7 @@ class VehiclesControllerTest < ActionDispatch::IntegrationTest
     assert_template partial: '_bookings_list', count: 1
 
     # Test basic view content.
+    assert_select 'title', 'ParkMyCar'
     assert_select 'h1', "Showing \"#{@vehicle.registration_number}\""
     assert_select 'h3', 'Details'
     assert_select 'p', "The details that you've provided for this vehicle"
@@ -148,6 +151,7 @@ class VehiclesControllerTest < ActionDispatch::IntegrationTest
     assert_template partial: '_form', count: 1
 
     # Test basic view content.
+    assert_select 'title', 'ParkMyCar'
     assert_select 'h1', "Update \"#{@vehicle.registration_number}\""
     assert_select 'p', 'Configure the details that you have provided to us for this vehicle'
     assert_select 'a', 'Show Vehicle'
