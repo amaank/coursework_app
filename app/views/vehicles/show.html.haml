@@ -7,18 +7,15 @@
   .page-header
     %h3= t('.details')
     %p= t('.details_description')
-  %p
-    %b= t('.reg_number')
-    = @vehicle.registration_number
-  %p
-    %b= t('.make')
-    = @vehicle.make
-  %p
-    %b= t('.model')
-    = @vehicle.model
-  %p
-    %b= t('.colour')
-    = @vehicle.colour
+
+  %b= t('.reg_number')
+  %p= @vehicle.registration_number
+  %b= t('.make')
+  %p= @vehicle.make
+  %b= t('.model')
+  %p= @vehicle.model
+  %b= t('.colour')
+  %p= @vehicle.colour
 
   .page-header
     %h3= t('.bookings')

@@ -34,6 +34,15 @@ class VehiclesControllerTest < ActionDispatch::IntegrationTest
     assert_select 'th', 'Model'
     assert_select 'th', 'Colour'
     assert_select 'th', 'Options'
+    assigns(:vehicles).each do |vehicle|
+      assert_select 'td', "#{vehicle.registration_number}"
+      assert_select 'td', "#{vehicle.make}"
+      assert_select 'td', "#{vehicle.model}"
+      assert_select 'td', "#{vehicle.colour}"
+      assert_select 'a', "Show"
+      assert_select 'a', "Update"
+      assert_select 'a', "Un-register"
+    end
     assert_select 'a', 'New Vehicle'
 
     # Ensure that a redirect occurs if no user is signed in.
@@ -120,9 +129,13 @@ class VehiclesControllerTest < ActionDispatch::IntegrationTest
     assert_select 'h3', 'Details'
     assert_select 'p', "The details that you've provided for this vehicle"
     assert_select 'b', 'Registration Number:'
+    assert_select 'p', "#{@vehicle.registration_number}"
     assert_select 'b', 'Make:'
+    assert_select 'p', "#{@vehicle.make}"
     assert_select 'b', 'Model:'
+    assert_select 'p', "#{@vehicle.model}"
     assert_select 'b', 'Colour:'
+    assert_select 'p', "#{@vehicle.colour}"
     assert_select 'h3', 'Bookings'
     assert_select 'p', "The bookings that you've made for this vehicle"
     assert_select 'a', 'Update Vehicle'
