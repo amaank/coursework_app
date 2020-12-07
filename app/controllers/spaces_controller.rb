@@ -6,9 +6,9 @@ class SpacesController < ApplicationController
   def index
     @spaces = Space.all
     # If a date has been received from a form submission.
-    if params[:date]
+    if space_params[:date]
       begin
-        date = Date.parse(params[:date])
+        date = Date.parse(space_params[:date])
         # Set the value of the displayed date, depending on whether the chosen date is in the required range.
         check_date_range(date)
       rescue ArgumentError
@@ -41,6 +41,11 @@ class SpacesController < ApplicationController
         # If the chosen date is valid, set it as the current displayed date.
         @chosen_date = date
       end
+    end
+
+    # Only allow a list of trusted parameters through.
+    def space_params
+      params.permit(:date)
     end
 
 end

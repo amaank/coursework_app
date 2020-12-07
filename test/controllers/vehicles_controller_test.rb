@@ -39,9 +39,6 @@ class VehiclesControllerTest < ActionDispatch::IntegrationTest
       assert_select 'td', "#{vehicle.make}"
       assert_select 'td', "#{vehicle.model}"
       assert_select 'td', "#{vehicle.colour}"
-      assert_select 'a', "Show"
-      assert_select 'a', "Update"
-      assert_select 'a', "Un-register"
     end
     assert_select 'a', 'New Vehicle'
 
