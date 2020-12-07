@@ -15,7 +15,7 @@ class HomeController < ApplicationController
       # Display alert indicating failure to send email.
       flash[:alert] = I18n.t('home.request_contact.no_email')
     else
-      # call appropriate mailer
+      # Call appropriate mailer.
       ContactMailer.contact_email(email, name, telephone, message).deliver_now
       # Display notice indicating successful sending of email.
       flash[:notice] = I18n.t('home.request_contact.email_sent')
