@@ -110,4 +110,9 @@ class VehicleTest < ActiveSupport::TestCase
     end
   end
 
+  test "should belong to one user" do
+    # Test belongs_to side of association (with User) using .user method provided by ORM.
+    assert @vehicle.user == users(:one)
+  end
+
 end

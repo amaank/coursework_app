@@ -62,9 +62,15 @@ class CostTypeTest < ActiveSupport::TestCase
     assert @cost_type.errors.key?(:name)
   end
 
-  test "invalid if price less than 0" do
+  test "invalid if price less than or equal to 0" do
     # Set value of price attribute to be less than 0.
     @cost_type.price *= -1
+    refute @cost_type.valid?
+    # Check that object is invalid due to invalid value for price attribute.
+    assert @cost_type.errors.key?(:price)
+
+    # Set value of price attribute to be 0.
+    @cost_type.price = 0
     refute @cost_type.valid?
     # Check that object is invalid due to invalid value for price attribute.
     assert @cost_type.errors.key?(:price)
