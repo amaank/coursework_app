@@ -38,4 +38,19 @@ class UserTest < ActiveSupport::TestCase
       vehicle_two.save
     end
   end
+
+  test "when destroyed, should have vehicles destroyed" do
+    # Save user to the database so we can test destroying it.
+    @user.save
+    # Create a vehicle object which references this user object.
+    vehicle = vehicles(:one)
+    vehicle.user = @user
+    # Save to database.
+    vehicle.save
+    # Destroy the user object (record) and check that it was successful.
+    assert @user.destroy
+    # Reload attributes of dependent vehicle object from corresponding record in database.
+    # This record should have been removed, so check for appropriate exception being raised.
+    assert_raise(ActiveRecord::RecordNotFound) { vehicle.reload }
+  end
 end

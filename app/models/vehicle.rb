@@ -2,6 +2,7 @@ class Vehicle < ApplicationRecord
   # Filter all objects by user
   scope :user_vehicles, -> (user) { where(['user_id = ?', user.id]) }
 
+  # One vehicle will belong to one particular user.
   belongs_to :user
   # There may be 0 or more bookings made for a particular vehicle.
   # But these should be removed if the vehicle is unregistered from the site.

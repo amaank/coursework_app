@@ -4,5 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :vehicles
+  # A particular user may register 0 or more vehicles.
+  # But these should be removed if the user is unregistered from the site.
+  has_many :vehicles, dependent: :destroy
 end

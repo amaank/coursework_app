@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
 
   # GET /vehicles/1/bookings/new
   def new
+    # Create a new booking object with an associated vehicle object.
     @booking = @vehicle.bookings.build
   end
 
@@ -46,6 +47,7 @@ class BookingsController < ApplicationController
     @booking.destroy
     respond_to do |format|
       format.html { redirect_to vehicle_path(@vehicle), notice: I18n.t('bookings.destroy.success') }
+      # Flash an appropriate notice in response to an AJAX request sent when performing destroy action.
       format.js { flash.now[:notice] = I18n.t('bookings.destroy.success') }
       format.json { head :no_content }
     end
@@ -53,11 +55,13 @@ class BookingsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    # Retrieve the associated vehicle object using the vehicle_id attribute of the booking object.
     def get_vehicle
       @vehicle = Vehicle.find(params[:vehicle_id])
     end
 
     # Use callbacks to share common setup or constraints between actions.
+    # Retrieve the existing booking object from its associated vehicle object.
     def set_booking
       @booking = @vehicle.bookings.find(params[:id])
     end

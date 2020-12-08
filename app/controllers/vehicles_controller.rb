@@ -6,6 +6,7 @@ class VehiclesController < ApplicationController
   # GET /vehicles
   # GET /vehicles.json
   def index
+    # Sort the objects to be displayed, by value of registration_number attribute (alphabetical order).
     @vehicles = Vehicle.user_vehicles(current_user).sort {|vehicle1, vehicle2| vehicle1.registration_number <=> vehicle2.registration_number}
   end
 
@@ -27,6 +28,7 @@ class VehiclesController < ApplicationController
   # POST /vehicles.json
   def create
     @vehicle = Vehicle.new(vehicle_params)
+    # Set the associated user object to be the currently signed-in user.
     @vehicle.user = current_user
 
     respond_to do |format|
@@ -60,6 +62,7 @@ class VehiclesController < ApplicationController
     @vehicle.destroy
     respond_to do |format|
       format.html { redirect_to vehicles_url, notice: I18n.t('vehicles.destroy.success') }
+      # Flash an appropriate notice in response to an AJAX request sent when performing destroy action.
       format.js { flash.now[:notice] = I18n.t('vehicles.destroy.success') }
       format.json { head :no_content }
     end
