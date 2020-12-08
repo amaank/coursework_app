@@ -1,6 +1,6 @@
 module ApplicationHelper
 
-  # Return the corresponding bootstrap class for the flash key.
+  # Return the corresponding Bootstrap class for the flash key.
   def flash_class(key)
     case key
         when "notice"
